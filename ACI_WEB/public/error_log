@@ -1,0 +1,223 @@
+[01-Jul-2016 15:47:48 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 35
+[01-Jul-2016 15:47:49 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 35
+[04-Jul-2016 01:45:33 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/home.php on line 71
+[04-Jul-2016 02:02:05 Etc/GMT] PHP Fatal error:  Call to a member function get_companyInfo() on a non-object in /home/daoutqw3/public_html/DEMO/APCON/application/view/home/config_sys.php on line 28
+[04-Jul-2016 02:23:09 Etc/GMT] PHP Fatal error:  Call to a member function get_companyInfo() on a non-object in /home/daoutqw3/public_html/DEMO/APCON/application/view/home/config_sys.php on line 28
+[04-Jul-2016 02:29:56 Etc/GMT] PHP Fatal error:  Call to a member function get_companyInfo() on a non-object in /home/daoutqw3/public_html/DEMO/APCON/application/view/home/config_sys.php on line 28
+[04-Jul-2016 13:17:55 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_sales_conf_Info() in /home/daoutqw3/public_html/DEMO/APCON/application/view/home/config_sys.php on line 242
+[04-Jul-2016 13:20:51 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_sales_conf_Info() in /home/daoutqw3/public_html/DEMO/APCON/application/view/home/config_sys.php on line 242
+[04-Jul-2016 13:21:42 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_sales_conf_Info() in /home/daoutqw3/public_html/DEMO/APCON/application/view/home/config_sys.php on line 242
+[06-Jul-2016 05:53:52 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 36
+[06-Jul-2016 05:53:53 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 36
+[07-Jul-2016 03:41:51 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_Order_No() in /home/daoutqw3/public_html/DEMO/APCON/application/view/operaciones/ges_pro_ventas.php on line 163
+[07-Jul-2016 03:42:07 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_Order_No() in /home/daoutqw3/public_html/DEMO/APCON/application/view/operaciones/ges_pro_ventas.php on line 163
+[07-Jul-2016 03:42:53 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_Order_No() in /home/daoutqw3/public_html/DEMO/APCON/application/view/operaciones/ges_pro_ventas.php on line 163
+[08-Aug-2016 16:07:36 Etc/GMT] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'daoutqw3_root'@'localhost' to database 'daoutwq3_sage_ga' in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 36
+[08-Aug-2016 16:07:36 Etc/GMT] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'daoutqw3_root'@'localhost' to database 'daoutwq3_sage_ga' in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 36
+[08-Aug-2016 16:09:25 Etc/GMT] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'daoutqw3_root'@'localhost' to database 'daoutwq3_sage_ga' in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 36
+[08-Aug-2016 16:09:50 Etc/GMT] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'daoutqw3_root'@'localhost' to database 'daoutwq3_sage_ga' in /home/daoutqw3/public_html/DEMO/APCON/application/core/controller.php on line 36
+[10-Sep-2016 15:26:36 Etc/GMT] PHP Parse error:  syntax error, unexpected 'case' (T_CASE) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 1635
+[11-Sep-2016 23:06:18 Etc/GMT] PHP Parse error:  syntax error, unexpected 'case' (T_CASE) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 1635
+[11-Sep-2016 23:06:39 Etc/GMT] PHP Parse error:  syntax error, unexpected 'case' (T_CASE) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 1635
+[11-Sep-2016 23:09:18 Etc/GMT] PHP Parse error:  syntax error, unexpected 'case' (T_CASE) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 1635
+[15-Sep-2016 22:52:16 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/daoutqw3/public_html/DEMO/APCON/application/model/model.php on line 66
+[16-Sep-2016 20:46:46 Etc/GMT] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 635
+[16-Sep-2016 21:41:01 Etc/GMT] PHP Fatal error:  Call to undefined function Query_value() in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 680
+[16-Sep-2016 21:55:33 Etc/GMT] PHP Parse error:  syntax error, unexpected ')' in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 742
+[18-Sep-2016 14:44:58 Etc/GMT] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 475
+[18-Sep-2016 14:45:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 475
+[18-Sep-2016 14:45:39 Etc/GMT] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 475
+[09-Oct-2016 21:05:33 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[15-Oct-2016 15:07:47 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 1472
+[15-Oct-2016 15:16:29 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 1434
+[18-Oct-2016 16:30:47 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:30:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:30:53 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:30:57 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:30:58 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:31:03 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:31:19 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:31:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:31:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:31:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 16:31:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 192
+[18-Oct-2016 22:13:41 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[18-Oct-2016 22:13:45 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[18-Oct-2016 22:13:46 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[18-Oct-2016 22:13:46 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[18-Oct-2016 22:13:48 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[18-Oct-2016 22:14:19 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[18-Oct-2016 22:14:20 Etc/GMT] PHP Parse error:  syntax error, unexpected 'is' (T_STRING) in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 308
+[19-Oct-2016 16:19:08 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:19:27 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:19:27 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:19:31 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:19:32 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:12 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:13 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:13 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:13 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:14 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:15 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:15 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:15 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:20:15 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:33:31 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:33:32 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:33:34 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:51:29 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[19-Oct-2016 16:52:10 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/APCON/application/core/application.php on line 56
+[22-Oct-2016 17:41:24 Etc/GMT] PHP Parse error:  syntax error, unexpected ''</td>";' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/APCON/application/controller/bridge_query.php on line 846
+[02-Nov-2016 19:34:54 Etc/GMT] PHP Parse error:  syntax error, unexpected ')' in /home/daoutqw3/public_html/DEMO/DEV/application/model/model.php on line 349
+[02-Nov-2016 20:16:37 Etc/GMT] PHP Parse error:  syntax error, unexpected ''"'' (T_CONSTANT_ENCAPSED_STRING) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 59
+[02-Nov-2016 20:17:04 Etc/GMT] PHP Parse error:  syntax error, unexpected ''";'' (T_CONSTANT_ENCAPSED_STRING) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 108
+[02-Nov-2016 20:17:26 Etc/GMT] PHP Parse error:  syntax error, unexpected ''";'' (T_CONSTANT_ENCAPSED_STRING) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 117
+[02-Nov-2016 20:17:48 Etc/GMT] PHP Parse error:  syntax error, unexpected ''"'' (T_CONSTANT_ENCAPSED_STRING) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 169
+[02-Nov-2016 20:18:13 Etc/GMT] PHP Parse error:  syntax error, unexpected '|' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 117
+[02-Nov-2016 20:18:37 Etc/GMT] PHP Parse error:  syntax error, unexpected ''";'' (T_CONSTANT_ENCAPSED_STRING) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 175
+[02-Nov-2016 22:15:46 Etc/GMT] PHP Fatal error:  Call to a member function verify_session() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 19
+[02-Nov-2016 22:16:39 Etc/GMT] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 9
+[02-Nov-2016 23:15:08 Etc/GMT] PHP Parse error:  syntax error, unexpected '{' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 448
+[06-Nov-2016 00:54:46 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_InvXstk() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 1851
+[06-Nov-2016 00:55:43 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_InvXStk() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 1851
+[06-Nov-2016 01:00:41 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_InvXvStk() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 1851
+[13-Nov-2016 20:04:40 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::index() in /home/daoutqw3/public_html/DEMO/DEV/application/core/application.php on line 56
+[14-Nov-2016 00:48:52 Etc/GMT] PHP Fatal error:  Cannot redeclare Model::Get_Ref_No() in /home/daoutqw3/public_html/DEMO/DEV/application/model/model.php on line 511
+[14-Nov-2016 01:27:57 Etc/GMT] PHP Fatal error:  Cannot access empty property in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2489
+[14-Nov-2016 02:31:24 Etc/GMT] PHP Parse error:  syntax error, unexpected '?>', expecting function (T_FUNCTION) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_requisiciones.php on line 93
+[14-Nov-2016 02:32:21 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_requisiciones.php on line 93
+[14-Nov-2016 02:32:24 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_requisiciones.php on line 93
+[14-Nov-2016 02:32:58 Etc/GMT] PHP Parse error:  syntax error, unexpected '.' in /home/daoutqw3/public_html/DEMO/DEV/application/model/model.php on line 678
+[14-Nov-2016 03:13:13 Etc/GMT] PHP Fatal error:  Cannot redeclare ges_requisiciones::req_print() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_requisiciones.php on line 95
+[14-Nov-2016 03:14:25 Etc/GMT] PHP Fatal error:  Cannot redeclare ges_requisiciones::req_print() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_requisiciones.php on line 95
+[14-Nov-2016 03:14:28 Etc/GMT] PHP Fatal error:  Cannot redeclare ges_requisiciones::req_print() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_requisiciones.php on line 95
+[14-Nov-2016 16:16:36 Etc/GMT] PHP Fatal error:  Class 'Model' not found in /home/daoutqw3/public_html/DEMO/DEV/application/core/controller.php on line 50
+[14-Nov-2016 17:11:18 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2774
+[14-Nov-2016 17:14:40 Etc/GMT] PHP Parse error:  syntax error, unexpected 'javascript' (T_STRING) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2022
+[14-Nov-2016 17:29:17 Etc/GMT] PHP Fatal error:  Call to undefined function get_req_to_report() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2712
+[14-Nov-2016 23:11:53 Etc/GMT] PHP Parse error:  syntax error, unexpected '$ORDER' (T_VARIABLE), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2777
+[14-Nov-2016 23:12:44 Etc/GMT] PHP Parse error:  syntax error, unexpected '$ORDER' (T_VARIABLE), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2780
+[14-Nov-2016 23:12:46 Etc/GMT] PHP Parse error:  syntax error, unexpected '$ORDER' (T_VARIABLE), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2780
+[14-Nov-2016 23:56:58 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/DEV/application/core/application.php on line 40
+[15-Nov-2016 00:51:03 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_items_by_OC() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_compras.php on line 38
+[15-Nov-2016 00:51:19 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_items_by_OC() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_compras.php on line 38
+[15-Nov-2016 00:51:23 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_items_by_OC() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_compras.php on line 38
+[15-Nov-2016 00:51:24 Etc/GMT] PHP Fatal error:  Call to undefined method Model::get_items_by_OC() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/ges_compras.php on line 38
+[15-Nov-2016 00:52:42 Etc/GMT] PHP Fatal error:  Call to undefined method Model::SESSION() in /home/daoutqw3/public_html/DEMO/DEV/application/model/model.php on line 703
+[15-Nov-2016 00:53:40 Etc/GMT] PHP Fatal error:  Call to a member function Query() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/model/model.php on line 711
+[15-Nov-2016 23:15:25 Etc/GMT] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH) in /home/daoutqw3/public_html/DEMO/DEV/application/model/model.php on line 721
+[15-Nov-2016 23:56:08 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 570
+[15-Nov-2016 23:56:08 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 570
+[15-Nov-2016 23:56:08 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 570
+[21-Nov-2016 16:20:54 Etc/GMT] PHP Fatal error:  Call to undefined method ges_requisiciones::index() in /home/daoutqw3/public_html/DEMO/DEV/application/core/application.php on line 56
+[22-Nov-2016 00:09:57 Etc/GMT] PHP Fatal error:  Class 'PHPMailer' not found in /home/daoutqw3/public_html/DEMO/DEV/application/view/operaciones/req_mailing.php on line 288
+[22-Nov-2016 01:38:48 Etc/GMT] PHP Fatal error:  Class 'PHPMailer' not found in /home/daoutqw3/public_html/DEMO/DEV/application/view/operaciones/req_mailing.php on line 7
+[22-Nov-2016 03:47:13 Etc/GMT] PHP Fatal error:  Call to a member function isSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/view/operaciones/req_mailing.php on line 280
+[24-Nov-2016 00:35:17 Etc/GMT] PHP Parse error:  syntax error, unexpected ''"/></td>' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 461
+[26-Nov-2016 16:36:27 Etc/GMT] PHP Parse error:  syntax error, unexpected ';', expecting function (T_FUNCTION) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2751
+[26-Nov-2016 16:36:54 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2778
+[26-Nov-2016 16:37:01 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2778
+[26-Nov-2016 18:57:51 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 18:59:52 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 19:02:13 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 19:03:15 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 19:11:33 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 19:12:21 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 19:12:52 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[26-Nov-2016 19:13:31 Etc/GMT] PHP Fatal error:  Call to a member function IsSMTP() on a non-object in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2921
+[29-Nov-2016 23:29:18 Etc/GMT] PHP Fatal error:  Call to undefined function Query() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2255
+[29-Nov-2016 23:32:03 Etc/GMT] PHP Fatal error:  Call to undefined function Query_value() in /home/daoutqw3/public_html/DEMO/DEV/application/controller/bridge_query.php on line 2255
+[09-Dec-2016 19:14:50 UTC] PHP Notice:  Undefined property: Application::$model in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:14:50 UTC] PHP Fatal error:  Call to a member function get_JobList() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:28 UTC] PHP Notice:  Undefined property: Application::$model in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:28 UTC] PHP Fatal error:  Call to a member function get_JobList() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:54 UTC] PHP Notice:  Undefined property: Application::$model in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:54 UTC] PHP Fatal error:  Call to a member function get_JobList() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:55 UTC] PHP Notice:  Undefined property: Application::$model in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:55 UTC] PHP Fatal error:  Call to a member function get_JobList() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:55 UTC] PHP Notice:  Undefined property: Application::$model in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:55 UTC] PHP Fatal error:  Call to a member function get_JobList() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:55 UTC] PHP Notice:  Undefined property: Application::$model in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[09-Dec-2016 19:15:55 UTC] PHP Fatal error:  Call to a member function get_JobList() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 111
+[08-Mar-2017 00:12:15 UTC] PHP Fatal error:  Class 'bridge_query' not found in /home/ricardo99/public_html/ACI_WEB/application/core/application.php on line 40
+[10-Apr-2017 15:01:27 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'daoutqw3'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/controller.php on line 37
+[10-Apr-2017 15:10:17 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'daoutqw3'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/controller.php on line 37
+[10-Apr-2017 15:11:00 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'daoutqw3'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/controller.php on line 37
+[10-Apr-2017 15:11:24 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'daoutqw3_root'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/controller.php on line 37
+[10-Apr-2017 15:12:07 Etc/GMT] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'daoutqw3_root'@'localhost' (using password: YES) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/controller.php on line 37
+[12-Apr-2017 03:49:50 Etc/GMT] PHP Fatal error:  Call to undefined method bridge_query::Query_value() in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 2182
+[17-Apr-2017 14:36:23 Etc/GMT] PHP Warning:  require(/home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/home.php): failed to open stream: No such file or directory in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 30
+[17-Apr-2017 14:36:23 Etc/GMT] PHP Warning:  require(/home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/home.php): failed to open stream: No such file or directory in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 30
+[17-Apr-2017 14:36:23 Etc/GMT] PHP Fatal error:  require(): Failed opening required '/home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/home.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 30
+[17-Apr-2017 14:37:20 Etc/GMT] PHP Fatal error:  Class 'ges_requisiciones' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[17-Apr-2017 14:41:14 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting function (T_FUNCTION) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4511
+[17-Apr-2017 15:48:36 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4563
+[17-Apr-2017 17:22:01 Etc/GMT] PHP Parse error:  syntax error, unexpected '$RECEPT' (T_VARIABLE), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4548
+[17-Apr-2017 18:05:14 Etc/GMT] PHP Parse error:  syntax error, unexpected '.' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4599
+[17-Apr-2017 18:05:29 Etc/GMT] PHP Parse error:  syntax error, unexpected '.' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4599
+[17-Apr-2017 18:05:31 Etc/GMT] PHP Parse error:  syntax error, unexpected '.' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4599
+[17-Apr-2017 18:05:52 Etc/GMT] PHP Parse error:  syntax error, unexpected ''<td>'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4600
+[17-Apr-2017 18:29:38 Etc/GMT] PHP Fatal error:  Cannot access empty property in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3744
+[17-Apr-2017 18:30:00 Etc/GMT] PHP Fatal error:  Cannot access empty property in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3744
+[17-Apr-2017 18:30:04 Etc/GMT] PHP Fatal error:  Cannot access empty property in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3744
+[17-Apr-2017 21:39:03 Etc/GMT] PHP Fatal error:  Call to undefined function Query_value() in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4328
+[17-Apr-2017 23:58:47 Etc/GMT] PHP Fatal error:  Call to undefined function get_req_ord() in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3678
+[18-Apr-2017 02:23:52 Etc/GMT] PHP Parse error:  syntax error, unexpected '$style' (T_VARIABLE) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3708
+[18-Apr-2017 14:32:27 Etc/GMT] PHP Parse error:  syntax error, unexpected ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3810
+[18-Apr-2017 14:32:27 Etc/GMT] PHP Parse error:  syntax error, unexpected ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3810
+[18-Apr-2017 14:33:08 Etc/GMT] PHP Parse error:  syntax error, unexpected ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3810
+[18-Apr-2017 14:37:35 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 14:39:28 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 14:39:29 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 14:39:40 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 14:39:58 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 1010
+[18-Apr-2017 14:50:01 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 563
+[18-Apr-2017 14:50:46 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or '$' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 586
+[18-Apr-2017 15:10:50 Etc/GMT] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 295
+[18-Apr-2017 15:27:22 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 755
+[18-Apr-2017 15:28:48 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 15:30:02 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 16:20:29 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 150
+[18-Apr-2017 18:33:46 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3881
+[18-Apr-2017 18:33:55 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3881
+[18-Apr-2017 18:35:44 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 150
+[18-Apr-2017 21:20:48 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4682
+[18-Apr-2017 21:26:34 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[18-Apr-2017 21:26:43 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 563
+[18-Apr-2017 21:34:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '.' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3941
+[18-Apr-2017 21:34:22 Etc/GMT] PHP Fatal error:  Call to undefined method Model::Get_User_Name() in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3941
+[18-Apr-2017 22:44:10 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3963
+[18-Apr-2017 23:13:50 Etc/GMT] PHP Parse error:  syntax error, unexpected '';PO'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3976
+[19-Apr-2017 14:01:21 Etc/GMT] PHP Parse error:  syntax error, unexpected '.' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4954
+[19-Apr-2017 14:38:06 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[19-Apr-2017 14:38:09 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[19-Apr-2017 14:38:10 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[19-Apr-2017 14:42:11 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[19-Apr-2017 15:07:03 Etc/GMT] PHP Parse error:  syntax error, unexpected 'table2' (T_STRING) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4649
+[19-Apr-2017 15:43:38 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3898
+[19-Apr-2017 15:43:40 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3898
+[19-Apr-2017 15:43:51 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3898
+[19-Apr-2017 15:44:52 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3896
+[19-Apr-2017 15:45:17 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3896
+[19-Apr-2017 15:45:40 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3896
+[19-Apr-2017 15:45:56 Etc/GMT] PHP Parse error:  syntax error, unexpected '' data-toggle="modal" data-tar' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 3896
+[19-Apr-2017 15:46:44 Etc/GMT] PHP Fatal error:  Class 'bridge_query' not found in /home/daoutqw3/public_html/DEMO/VALLARINO/application/core/application.php on line 40
+[19-Apr-2017 16:44:17 Etc/GMT] PHP Parse error:  syntax error, unexpected ''+reason);' (T_CONSTANT_ENCAPSED_STRING) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 4103
+[20-Apr-2017 14:11:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'get_req_item_lines' (T_STRING), expecting variable (T_VARIABLE) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 5059
+[20-Apr-2017 14:13:02 Etc/GMT] PHP Parse error:  syntax error, unexpected 'get_req_item_lines' (T_STRING), expecting variable (T_VARIABLE) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 5059
+[20-Apr-2017 14:13:06 Etc/GMT] PHP Parse error:  syntax error, unexpected 'get_req_item_lines' (T_STRING), expecting variable (T_VARIABLE) in /home/daoutqw3/public_html/DEMO/VALLARINO/application/controller/bridge_query.php on line 5059
+[08-May-2017 16:28:45 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ricardo99/public_html/ACI_WEB/application/model/model.php on line 330
+[08-May-2017 16:29:37 UTC] PHP Fatal error:  Call to a member function ConnectSage2() on a non-object in /home/ricardo99/public_html/ACI_WEB/application/model/model.php on line 324
+[09-May-2017 21:50:21 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/ricardo99/public_html/ACI_WEB/application/model/model.php on line 326
+[09-May-2017 22:18:32 UTC] PHP Parse error:  syntax error, unexpected '*', expecting identifier (T_STRING) in /home/ricardo99/public_html/ACI_WEB/application/model/model.php on line 97
+[17-May-2017 03:51:27 UTC] PHP Parse error:  syntax error, unexpected 'ORDER' (T_STRING) in /home/ricardo99/public_html/ACI_WEB/application/model/model.php on line 818
+[11-Jul-2017 18:42:14 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 39
+[11-Jul-2017 18:49:37 UTC] PHP Parse error:  syntax error, unexpected ''%" ;'' (T_CONSTANT_ENCAPSED_STRING) in /home/ricardo99/public_html/ACI_WEB/application/controller/bridge_query.php on line 35
+[07-Aug-2017 15:15:45 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) in /home/ricardo99/public_html/ACI_WEB/application/core/controller.php on line 37
