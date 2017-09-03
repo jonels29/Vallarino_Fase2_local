@@ -67,6 +67,24 @@ if($this->model->rol_campo=='1'){ ?>
 
 </ul> -->
 
+<!--MODULO DE GESTION DE PROYECTOS (JOBS Y PHASES)-->
+
+<li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown" data-submenu="">
+         <img class='icon' src="img/Chart Pie.png" />Proyectos<span class="caret"></span>
+        </a>
+
+  <ul class="dropdown-menu" > 
+ 
+    <li ><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_proyectos/ges_proyecto"><img class='icon' src="img/invoice.png" />Gestion de Proyectos</a></li>  
+    <li class="divider"></li>
+    <li><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_fases/ges_fase"><img class='icon' src="img/List.png" />Gestion de Fases</a></li> 
+  </ul>
+
+
+<!--MODULO DE REPORTES-->
+
+
 <li class="dropdown">
         <a tabindex="0" data-toggle="dropdown" data-submenu="">
          <img class='icon' src="img/Chart Pie.png" />Reportes<span class="caret"></span>
@@ -81,6 +99,7 @@ if($this->model->rol_campo=='1'){ ?>
   </ul>
 
   
+
 
 </li>
 </ul>

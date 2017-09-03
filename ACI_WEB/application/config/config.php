@@ -57,8 +57,8 @@ ini_set('max_execution_time', 28800);
 */
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'daoutqw3_sage_ga');
-define('DB_USER', 'daoutqw3');
-define('DB_PASS', 'daoutel2016');
+define('DB_NAME', 'daoutqw3_vallarino');
+define('DB_USER', 'daoutqw3_root');
+define('DB_PASS', 'daoutel2017');
 define('DB_CHARSET', 'utf8');
 
