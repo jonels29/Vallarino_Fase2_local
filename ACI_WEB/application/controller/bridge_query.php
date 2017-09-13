@@ -2211,6 +2211,178 @@ $table.="<tr  >
 $table.= '</tbody></table> <div class="separador col-lg-12"></div><div id="info"></div>'; 
 
 break;
+
+//Reporte de requisiciones urgentes
+case "ReqUrg":
+
+$table = '';
+$clause='';
+
+$clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_HEADER.isUrgent="0" and REQ_DETAIL.ID_compania="'.$this->model->id_compania.'" ';
+
+if($date1!=''){
+   if($date2!=''){
+      $clause.= ' and  DATE >= "'.$date1.'%" and DATE <= "'.$date2.'%" ';           
+    }
+   if($date2==''){ 
+     $clause.= ' and  DATE like "'.$date1.'%" ';
+   }
+}
+
+
+
+
+ $table.= '<script type="text/javascript">
+ jQuery(document).ready(function($)
+  {
+   var table = $("#table_reportReqUrg").dataTable({
+      
+      responsive: false,
+      pageLength: 10,
+      dom: "Bfrtip",
+      bSort: false,
+      select: false,
+ 
+      info: false,
+        buttons: [
+          {
+          extend: "excelHtml5",
+          text: "Exportar",
+          title: "Reporte_Estado_de_requisiciones",
+           
+          exportOptions: {
+                columns: ":visible",
+                 format: {
+                    header: function ( data ) {
+                      var StrPos = data.indexOf("<div");
+                        if (StrPos<=0){
+                          
+                          var ExpDataHeader = data;
+                        }else{
+                       
+                          var ExpDataHeader = data.substr(0, StrPos); 
+                        }
+                       
+                      return ExpDataHeader;
+                      }
+                    }
+                 
+                  }
+                
+          },
+          {
+          extend:  "colvis",
+          text: "Seleccionar",
+          columns: ":gt(0)"           
+         },
+         {
+          extend: "colvisGroup",
+          text: "Ninguno",
+          show: [0],
+          hide: [":gt(0)"]
+          },
+          {
+            extend: "colvisGroup",
+            text: "Todo",
+            show: ["*"]
+          }
+          ]
+   
+    });
+table.yadcf(
+[
+{column_number : 0,
+ column_data_type: "html",
+ html_data_type: "text"
+ },
+{column_number : 1},
+{column_number : 3},
+{column_number : 4}
+],
+{cumulative_filtering: true, 
+filter_reset_button_text: false}); 
+});
+
+  </script>
+   <table id="table_reportReqUrg" class="display nowrap table table-condensed table-striped table-bordered" >
+   
+    <thead>
+      <tr>
+        
+        <th width="10%">No. Ref.</th>
+        <th width="10%">Fecha </th>
+        <th width="45%">Descripcion</th>
+        <th width="25%">Solicitado por:</th>
+        <th width="10%">Estado</th>
+        
+      </tr>
+    </thead>
+    <tbody>';
+
+
+$Item = $this->model->get_req_to_report($sort,$limit,$clause);
+
+
+
+foreach ($Item as $datos) {
+
+$Item = json_decode($datos);
+
+$name = $this->model->Query_value('SAX_USER','name','Where ID="'.$Item->{'USER'}.'"');
+$lastname =  $this->model->Query_value('SAX_USER','lastname','Where ID="'.$Item->{'USER'}.'"');
+
+$status='';
+
+$ID = '"'.$Item->{'NO_REQ'}.'"';
+
+$URL = '"'.URL.'"';
+
+
+//obtengo estatus de la requisicion
+$status = $this->req_status($Item->{'NO_REQ'});
+
+switch ($status) {
+
+  case 'CERRADA':
+     $style = 'style="background-color:#D8D8D8 ;"';//verder
+    break;
+  case 'FINALIZADO':
+     $style = 'style="background-color:#BCF5A9;"';//verder
+    break;
+  case 'ORDENADO':
+     $style = 'style="background-color:#F2F5A9;"';//AMARILLO
+    break;
+  case 'PARCIALMENTE ORDENADO':
+     $style = 'style="background-color:#F3E2A9;"';//NARANJA
+    break;
+  case 'COTIZANDO':
+     $style = 'style="background-color:#F7BE81;"';//NARANJA
+    break; 
+  case 'POR COTIZAR':
+     $style = 'style="background-color:#F5A9A9;"';//ROJO
+    break; 
+
+}
+
+
+$table.="<tr  >
+              
+              <td width='10%' ><a href='#' onclick='javascript: show_req(".$URL.",".$ID.");'>".$Item->{'NO_REQ'}."</a></td>
+              <td width='10%' >".date('m/d/Y',strtotime($Item->{'DATE'}))."</td>
+              <td width='45%' >".$Item->{'NOTA'}.'</td>
+              <td width="25%" >'.$name.' '.$lastname.'</td>
+              <td width="10%" '.$style.' >'.$status.'</td>
+          </tr>';
+ 
+
+      }
+
+   
+
+$table.= '</tbody></table> <div class="separador col-lg-12"></div><div id="info"></div>'; 
+
+break;
+
 //Reporte  de consignaciones
 case "ConList":
 
@@ -3447,7 +3619,7 @@ echo $codes;
 
 
 //REQUISICIONES//////////////////////////////////////////////////////////////////////////////////////////////////////////
-public function set_req_header($JobID,$nota){
+public function set_req_header($JobID,$nota,$flag){
 $this->SESSION();
 
 $Req_NO = $this->model->Get_Req_No($JobID);
@@ -3457,7 +3629,8 @@ $value_to_set  = array(
   'ID_compania' => $this->model->id_compania, 
   'NOTA' => $nota , 
   'USER' => $this->model->active_user_id, 
-  'DATE' => date("Y-m-d"), 
+  'DATE' => date("Y-m-d"),
+  'isUrgent' => $flag  
   );
 
 $res = $this->model->insert('REQ_HEADER',$value_to_set);

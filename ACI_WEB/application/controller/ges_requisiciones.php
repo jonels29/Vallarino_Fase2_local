@@ -92,7 +92,7 @@ public function req_print($id){
 
 }
 
-public function req_mailing($id){
+public function req_mailing($id,$flag){
 
  $res = $this->model->verify_session();
 

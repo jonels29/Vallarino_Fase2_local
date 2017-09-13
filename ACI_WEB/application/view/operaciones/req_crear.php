@@ -404,11 +404,24 @@ var x=document.getElementById(UNIID).innerHTML;
          </fieldset>
 		</div> 
    
-		
-
-					
+						
 </fieldset>
+</div>
 
+<div id='opt' class="collapse in col-lg-6" >
+
+<div class=" col-lg-3">
+<fieldset>
+	
+	
+	<legend><h4>Opciones</h4></legend>
+
+	<input type="CHECKBOX" name="urgent_chk" id="urgent_chk" value="0" />&nbsp<label>Requisicion Urgente</label><br>
+	<input type="CHECKBOX" name="pay_chk" id="pay_chk" value="1" />&nbsp<label>Pago Adelantado</label>
+
+	
+</fieldset>
+</div>
 </div>
 
 <div class="separador col-lg-12"></div>		
@@ -529,16 +542,28 @@ if (r == true) {
         spin_show();
 
         var link = URL+"index.php";
+        var isUrgent  = document.getElementById('urgent_chk').value; 
 
+        if (isUrgent == 0) {
+
+        	var set_urgent = 0;
+
+        }else{
+
+        	var set_urgent = 1;
+        }
 
         //REGITRO DE CABECERA
         function set_header(){
 
         	
 	        var JOBID = document.getElementById('JOBID').value;
-	        var nota  = document.getElementById('nota').value;  
+	        var nota  = document.getElementById('nota').value;
+	          
 
-			var datos= "url=bridge_query/set_req_header/"+JOBID+"/"+nota; //LINK DEL METODO EN BRIDGE_QUERY
+	        	var datos= "url=bridge_query/set_req_header/"+JOBID+"/"+nota+"/"+set_urgent; //LINK DEL METODO EN BRIDGE_QUERY
+
+
 
 	               return   $.ajax({
 					type: "GET",
@@ -570,7 +595,7 @@ if (r == true) {
 					      
 					if(res==1){//TERMINA EL LLAMADO AL METODO set_req_items SI ESTE DEVUELV UN '1', indica que ya no hay items en el array que procesar.
 									
-						send_mail(link,Req_NO);
+						send_mail(link,Req_NO,set_urgent);
 				
 					}
 
@@ -629,10 +654,10 @@ return val;
 							
 }
 	
-function send_mail(link,Req_NO){
+function send_mail(link,Req_NO,flag){
 
        //ENVIO POR MAIL 
-	var datos= "url=ges_requisiciones/req_mailing/"+Req_NO; //LINK A LA PAGINA DE MAILING
+	var datos= "url=ges_requisiciones/req_mailing/"+Req_NO+"/"+flag; //LINK A LA PAGINA DE MAILING
     
 
 	$.ajax({

@@ -139,12 +139,22 @@ foreach ($smtp as $smtp_val) {
 
 }
 
-
-
-$mail->Subject = utf8_decode("Requisicion-".$ref);
 $mail->Body = $message_to_send;
 
+  if ($flag == 0) {
+  
+    $mail->Priority = 1;
+    $mail->AddCustomHeader("X-MSMail-Priority: High");
+    $mail->AddCustomHeader("Importance: High");
+    $subject ='Pedido Urgente!. Requisicion-'.$ref;
 
+  }else{
+
+    $subject ='Requisicion-'.$ref;
+
+}
+
+$mail->Subject = utf8_decode($subject);
 
 
 //VERIFICA USUARIOS CON OPCION D ENOTIFICACION DE ORDEN DE COMPRAS

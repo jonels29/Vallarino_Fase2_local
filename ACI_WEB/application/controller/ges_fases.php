@@ -219,7 +219,7 @@ table.yadcf(
       $table.= '<tr>
             <td width="10%">'.$value->{'PhaseID'}.'</td>
             <td width="20%">'.$value->{'Description'}.'</td>
-            <td width="10%">'.$act.'</td>
+            <td width="10%" style="text-align:center">'.$act.'</td>
             <td width="5%" style="text-align:center"><input type="button" onclick="act_phase('.$phase_id.','.$act_deact_js.');" id="act_button" name="act_button"  class="'.$color_class.'" value="'.$act_deact.'"/></td>
             <td width="5%" style="text-align:center"><a title="modificar Item" data-toggle="modal" data-target="#PhaseModal"  href="javascript:void(0)" onclick="set_modal_phase('.$phase_id.','.$desc.');"><input type="button" id="modify_button" name="modify_button"  class="btn btn-warning btn-sm btn-icon icon-left" value="Modificar"/></a></td>
             <td width="5%" style="text-align:center"><input type="button" onclick="del_phase('.$phase_id.');" id="act_button" name="act_button"  class="btn btn-danger btn-sm btn-icon icon-left" value="Elminar"/></td>

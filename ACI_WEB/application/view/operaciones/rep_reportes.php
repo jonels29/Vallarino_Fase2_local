@@ -19,6 +19,7 @@
            <option  value="ConList" >CONSIGNACIONES</option> -->
        <?php if($this->model->rol_campo=='1' || $this->model->rol_compras=='1' ){ ?>
            <option  value="ReqStat" >REQUISICIONES</option>
+           <option  value="ReqUrg" >REQUISICIONES URGENTES</option>
        <?php } 
            if($this->model->rol_compras=='1' ){
        ?>
