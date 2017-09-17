@@ -452,6 +452,30 @@ function show_req(URL,id){
 
  }
 
+function show_req_urg(job){
+
+
+URL = document.getElementById('URL').value;
+
+var datos= "url=bridge_query/get_ReqJob/"+job;
+   
+var link= URL+"index.php";
+
+$('#reqInfo').html('<P>CARGANDO ...</P>');
+
+  $.ajax({
+      type: "GET",
+      url: link,
+      data: datos,
+      success: function(res){
+      
+       $('#reqInfo').html(res);
+       // alert(res);
+
+        }
+   });
+}
+
 function close_req(id){ 
 
 var reason = document.getElementById('req_reason_close').value;

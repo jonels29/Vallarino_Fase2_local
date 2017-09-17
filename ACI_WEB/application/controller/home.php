@@ -89,4 +89,24 @@ class home extends Controller
 
 }
 
+
+public function CheckError(){
+
+
+  $CHK_ERROR =  $this->model->read_db_error();
+
+
+  if ($CHK_ERROR!=''){ 
+
+   
+    die( "<script>  $(window).on('load', function () {   
+                           $('#ErrorModal').modal('show');
+                           $('#ErrorMsg').html('".$CHK_ERROR."');
+                         }); 
+          </script>");
+
+  }
+
+}
+
 }

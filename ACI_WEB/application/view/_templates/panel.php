@@ -67,24 +67,9 @@ if($this->model->rol_campo=='1'){ ?>
 
 </ul> -->
 
-<!--MODULO DE GESTION DE PROYECTOS (JOBS Y PHASES)-->
-
-<li class="dropdown">
-        <a tabindex="0" data-toggle="dropdown" data-submenu="">
-         <img class='icon' src="img/Chart Pie.png" />Proyectos<span class="caret"></span>
-        </a>
-
-  <ul class="dropdown-menu" > 
- 
-    <li ><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_proyectos/ges_proyecto"><img class='icon' src="img/invoice.png" />Gestion de Proyectos</a></li>  
-    <li class="divider"></li>
-    <li><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_fases/ges_fase"><img class='icon' src="img/List.png" />Gestion de Fases</a></li> 
-  </ul>
 
 
 <!--MODULO DE REPORTES-->
-
-
 <li class="dropdown">
         <a tabindex="0" data-toggle="dropdown" data-submenu="">
          <img class='icon' src="img/Chart Pie.png" />Reportes<span class="caret"></span>
@@ -97,14 +82,26 @@ if($this->model->rol_campo=='1'){ ?>
     <li class="divider"></li>-->
     <li><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_reportes/rep_reportes"><img class='icon' src="img/List.png" />Visualizar reportes</a></li> 
   </ul>
-
-  
-
-
 </li>
+
+<!--MODULO DE GESTION DE PROYECTOS (JOBS Y PHASES)-->
+<?php if($this->model->active_user_role=='admin'){?>
+<li class="dropdown">
+        <a tabindex="0" data-toggle="dropdown" data-submenu="">
+         <img class='icon' src="img/Document Blueprint.png" />Proyectos<span class="caret"></span>
+        </a>
+
+  <ul class="dropdown-menu" > 
+ 
+    <li ><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_proyectos/ges_proyecto"><img class='icon' src="img/Document Checklist.png" />Proyectos</a></li>
+    <li><a tabindex="0" href="<?PHP ECHO URL; ?>index.php?url=ges_fases/ges_fase"><img class='icon' src="img/Document Checklist.png" />Fases</a></li> 
+  </ul>
+<?php } ?>
+
+
+
+
 </ul>
-
-
 
 
 <ul class="nav navbar-nav navbar-right">

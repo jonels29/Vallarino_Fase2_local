@@ -368,7 +368,7 @@ var x=document.getElementById(UNIID).innerHTML;
 
 <div class="separador col-lg-12"></div>
 
-<div id='Solicitud' class="collapse in col-lg-6" >
+<div id='Solicitud' class="collapse in col-lg-10" >
 	
 <fieldset>
 <input type="hidden" id='user' value="<?php echo $active_user_id; ?>" />
@@ -392,9 +392,9 @@ var x=document.getElementById(UNIID).innerHTML;
 </div>
 
         
-   	<div  class="title col-lg-12"></div>
+ <div  class="title col-lg-12"></div>
 		
-	 <div class="col-lg-12">
+	 <div class="col-lg-8">
          <fieldset>
        	
          	<div class="comment-text-area col-lg-12">
@@ -405,12 +405,10 @@ var x=document.getElementById(UNIID).innerHTML;
 		</div> 
    
 						
-</fieldset>
-</div>
 
-<div id='opt' class="collapse in col-lg-6" >
 
-<div class=" col-lg-3">
+
+<div class=" col-lg-4">
 <fieldset>
 	
 	
@@ -422,8 +420,10 @@ var x=document.getElementById(UNIID).innerHTML;
 	
 </fieldset>
 </div>
-</div>
 
+</fieldset>
+
+</div>
 <div class="separador col-lg-12"></div>		
 
 <div class=" col-lg-12"> 
