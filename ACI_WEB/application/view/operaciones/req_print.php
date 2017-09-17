@@ -104,6 +104,10 @@ foreach ($comp as $value) {
                       <th></th>
                     </tr>
                     <tr>
+                      <th><strong>Pago Adelantado: </strong> <?php echo $Pay_req; ?></th>
+                      <th></th>
+                    </tr>
+                    <tr>
                       <th></th>
                       <th></th>
                     </tr>

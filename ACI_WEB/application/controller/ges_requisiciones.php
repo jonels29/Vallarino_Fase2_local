@@ -47,10 +47,18 @@ public function req_hist(){
 	
 }
 
-public function req_print($id){
+public function req_print($id,$Pay_flag){
 
 
  $res = $this->model->verify_session();
+
+        if ($Pay_flag == 0) {
+  
+             $Pay_req = 'Si';
+        }else{
+
+              $Pay_req = 'No';
+        }
 
         if($res=='0'){
 
@@ -92,7 +100,7 @@ public function req_print($id){
 
 }
 
-public function req_mailing($id,$flag){
+public function req_mailing($id,$flag,$Pay_flag){
 
  $res = $this->model->verify_session();
 

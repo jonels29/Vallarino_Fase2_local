@@ -40,6 +40,14 @@ foreach ($ORDER as  $value) {
 
 <?php
 
+if ($Pay_flag == 0) {
+  
+  $Pay_req = 'Si';
+}else{
+
+  $Pay_req = 'No';
+}
+
 $message .='<h2 class="h_invoice_header" >Requisicion</h2>
                  <table BORDER="1">
                     
@@ -53,6 +61,10 @@ $message .='<h2 class="h_invoice_header" >Requisicion</h2>
                     </tr>
                     <tr>
                       <th style="text-align:left;"><strong>Solicitante: </strong>'.$rep.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Pago Adelantado: </strong>'.$Pay_req.'</th>
                       
                     </tr>
 </table>
