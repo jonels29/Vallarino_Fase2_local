@@ -2139,7 +2139,7 @@ filter_reset_button_text: false});
       <tr>
         
         <th width="10%">No. Ref.</th>
-        <th width="10%">Fecha </th>
+        <th width="10%">Fecha Solicitud</th>
         <th width="45%">Descripcion</th>
         <th width="25%">Solicitado por:</th>
         <th width="10%">Estado</th>
@@ -2197,7 +2197,7 @@ switch ($status) {
 $table.="<tr  >
               
               <td width='10%' ><a href='#' onclick='javascript: show_req(".$URL.",".$ID.");'>".$Item->{'NO_REQ'}."</a></td>
-              <td width='10%' >".date('m/d/Y',strtotime($Item->{'DATE'}))."</td>
+              <td width='10%' >".date('d/M/Y g:i a',strtotime($Item->{'DATE'}))."</td>
               <td width='45%' >".$Item->{'NOTA'}.'</td>
               <td width="25%" >'.$name.' '.$lastname.'</td>
               <td width="10%" '.$style.' >'.$status.'</td>
@@ -2670,7 +2670,7 @@ table.yadcf(
 
      $date = strtotime($value->{'Date'});
 
-     $date = date('m/d/Y',$date);
+     $date = date('d/M/Y g:i a',$date);
 
 
     $PO_NO = trim ($value->{'PurchaseOrderNumber'});
@@ -3528,10 +3528,21 @@ echo $codes;
 
 
 //REQUISICIONES//////////////////////////////////////////////////////////////////////////////////////////////////////////
-public function set_req_header($JobID,$nota,$flag,$Pay_flag){
+public function set_req_header($JobID,$nota,$flag,$date_ini){
 $this->SESSION();
 
 $Req_NO = $this->model->Get_Req_No($JobID);
+
+if($date_ini!=''){
+
+$date_ini = date("Y-m-d H:i:s", strtotime($date_ini));
+
+
+}else{
+
+$date_ini= '';
+
+}
 
 $value_to_set  = array( 
   'NO_REQ' => $Req_NO, 
@@ -3539,9 +3550,9 @@ $value_to_set  = array(
   'ID_compania' => $this->model->id_compania, 
   'NOTA' => $nota , 
   'USER' => $this->model->active_user_id, 
-  'DATE' => date("Y-m-d"),
-  'isUrgent' => $flag,
-  'isPay' => $Pay_flag  
+  'DATE' => date("Y-m-d H:i:s"),
+  'DATE_INI' => $date_ini,
+  'isUrgent' => $flag  
   );
 
 $res = $this->model->insert('REQ_HEADER',$value_to_set);
@@ -3958,11 +3969,22 @@ switch ($status_gen) {
 
 }
 
+if($ORDER_detail->{'DATE_INI'}!=''){
+
+  $data_ini = date('d/M/Y',strtotime($ORDER_detail->{'DATE_INI'}));
+}else{
+  
+  $data_ini = '';
+
+}
+
+
 
 
 
 echo     "<tr><th style='text-align:left;' ><strong>No. Req</strong></th><td class='InfsalesTd order'>".$ORDER_detail->{'NO_REQ'}."</td><tr>
-          <tr><th style='text-align:left;'><strong>Fecha</strong></th><td class='InfsalesTd'>".$ORDER_detail->{'DATE'}."</td><tr>
+          <tr><th style='text-align:left;'><strong>Fecha solicitud</strong></th><td class='InfsalesTd'>".date('d/M/Y g:i a',strtotime($ORDER_detail->{'DATE'}))."</td><tr>
+          <tr><th style='text-align:left;'><strong>Fecha inicio actividad</strong></th><td class='InfsalesTd'>".$data_ini."</td><tr>
           <tr><th style='text-align:left;'><strong>Solicitado por:</strong></th><td class='InfsalesTd'>".$name.' '.$lastname.'</td><tr>
           <tr><th style="text-align:left;" ><strong>Estado</strong></th><td '.$style.' class="InfsalesTd">'.$status_gen.'</td><tr>';
 
@@ -4180,7 +4202,7 @@ $CREACION = $this->model->Query("SELECT DATE, USER FROM REQ_HEADER WHERE  ID_com
         $value = json_decode($value);
 
         $date = strtotime($value->{'DATE'});
-        $date = date('m/d/Y',$date );
+        $date = date('d/M/Y g:i a',$date );
 
         echo '<tr><td>Creación de Requisición</td><td class="numb" >'.$date.'</td><td>'.$this->model->Get_User_Name($value->{'USER'}).'</td></tr>';
 
@@ -4193,7 +4215,7 @@ $QUOTA  = $this->model->Query("SELECT DATE, USER FROM REQ_QUOTA WHERE  ID_compan
         $value = json_decode($value);
 
         $date = strtotime($value->{'DATE'});
-        $date = date('m/d/Y',$date );
+        $date = date('d/M/Y g:i a',$date );
 
         echo '<tr><td>Inicio de cotización</td><td class="numb" >'.$date.'</td><td>'.$this->model->Get_User_Name($value->{'USER'}).'</td></tr>';
 
@@ -4241,7 +4263,7 @@ $i=1;
 
     list($msg,$user) = explode(';', $value);
 
-    $date = date('m/d/Y',$date);
+    $date = date('d/M/Y g:i a',$date );
 
     if($msg!=''){
      
@@ -4261,7 +4283,7 @@ $FIN = $this->model->Query_value('REQ_RECEPT','DATE',"WHERE  ID_compania='".$thi
                                                                                   ORDER BY DATE DESC LIMIT 1");
 
  $date = strtotime($FIN);
- $date = date('m/d/Y',$date );
+ $date = date('d/M/Y g:i a',$date );
 
 
  echo '<tr><td>Proceso FINALIZADO </td><td class="numb" >'.$date.'</td><td>SISTEMA ACIWEB</td></tr>';
@@ -4274,7 +4296,7 @@ if($status_gen=='CERRADA'){
  $CERRADO= $this->model->Query_value('REQ_HEADER','LAST_CHANGE',"WHERE  ID_compania='".$this->model->id_compania."' 
                                                                                   AND NO_REQ='".$ORDER_detail->{'NO_REQ'}."'");
  $date = strtotime($CERRADO);
- $date = date('m/d/Y',$date );
+ $date = date('d/M/Y g:i a',$date );
 
  $MOTIVO= $this->model->Query_value('REQ_HEADER','desc_closed',"WHERE  ID_compania='".$this->model->id_compania."' 
                                                                        AND NO_REQ='".$ORDER_detail->{'NO_REQ'}."'");
@@ -4951,7 +4973,7 @@ $table.= '<button type="button" class="close" aria-label="Close" onclick="CLOSE_
 
 
     $table.= "<tr><th style='text-align:left;' width='25%'>ID. Compra.</th><td >".$value->{'PurchaseOrderNumber'}.'</td></tr>
-           <tr><th style="text-align:left;" width="25%">Fecha</th><td >'.$value->{'Date'}.'</td></tr>
+           <tr><th style="text-align:left;" width="25%">Fecha</th><td >'.date('d/M/Y g:i a',strtotime($value->{'Date'})).'</td></tr>
            <tr><th style="text-align:left;" width="25%">Requisición</th><td >'.$value->{'CustomerSO'}.'</td></tr>
            <tr><th style="text-align:left;" width="25%">Proveedor</th><td >'.$value->{'VendorName'}.'</td></tr>
            <tr><th style="text-align:left;" width="10%">Estado</th> <td >'.$value->{'WorkflowStatusName'}.'</td></tr>
@@ -5074,9 +5096,19 @@ switch ($status) {
 
 }
 
+if($ORDER_detail->{'DATE_INI'}!=''){
+
+  $data_ini = date('d/M/Y',strtotime($ORDER_detail->{'DATE_INI'}));
+}else{
+  
+  $data_ini = '';
+
+}
+
 
 echo     "<tr><th style='text-align:left;' ><strong>No. Req</strong></th><td class='InfsalesTd order'>".$ORDER_detail->{'NO_REQ'}."</td><tr>
-          <tr><th style='text-align:left;'><strong>Fecha</strong></th><td class='InfsalesTd'>".$ORDER_detail->{'DATE'}."</td><tr>
+          <tr><th style='text-align:left;'><strong>Fecha Solicitud</strong></th><td class='InfsalesTd'>".date('d/M/Y g:i a',strtotime($ORDER_detail->{'DATE'}))."</td><tr>
+          <tr><th style='text-align:left;'><strong>Fecha inicio actividad</strong></th><td class='InfsalesTd'>".$data_ini."</td><tr>          
           <tr><th style='text-align:left;'><strong>Solicitado por:</strong></th><td class='InfsalesTd'>".$name.' '.$lastname.'</td><tr>
           <tr><th style="text-align:left;" ><strong>Estado</strong></th><td '.$style.' class="InfsalesTd">'.$status.'</td><tr>';
 
@@ -5436,7 +5468,7 @@ filter_reset_button_text: false});
       <tr>
         
         <th width="10%">No. Ref.</th>
-        <th width="10%">Fecha </th>
+        <th width="10%">Fecha Solicitud</th>
         <th width="45%">Descripcion</th>
         <th width="25%">Solicitado por:</th>
         <th width="10%">Estado</th>
@@ -5494,7 +5526,7 @@ switch ($status) {
 $table.="<tr  >
               
               <td width='10%' ><a href='#' onclick='javascript: show_req(".$URL.",".$ID.");'>".$Item->{'NO_REQ'}."</a></td>
-              <td width='10%' >".date('m/d/Y',strtotime($Item->{'DATE'}))."</td>
+              <td width='10%' >".date('d/M/Y g:i a',strtotime($Item->{'DATE'}))."</td>
               <td width='45%' >".$Item->{'NOTA'}.'</td>
               <td width="25%" >'.$name.' '.$lastname.'</td>
               <td width="10%" '.$style.' >'.$status.'</td>

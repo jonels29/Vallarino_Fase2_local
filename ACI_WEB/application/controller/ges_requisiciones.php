@@ -47,18 +47,10 @@ public function req_hist(){
 	
 }
 
-public function req_print($id,$Pay_flag){
+public function req_print($id){
 
 
  $res = $this->model->verify_session();
-
-        if ($Pay_flag == 0) {
-  
-             $Pay_req = 'Si';
-        }else{
-
-              $Pay_req = 'No';
-        }
 
         if($res=='0'){
 
@@ -80,7 +72,7 @@ public function req_print($id,$Pay_flag){
               $rep = $name.' '.$lastname;
 
               $date = $value->{'DATE'};
-
+              $date_ini = $value->{'DATE_INI'};
               $desc = $value->{'NOTA'};
 
 
@@ -100,7 +92,7 @@ public function req_print($id,$Pay_flag){
 
 }
 
-public function req_mailing($id,$flag,$Pay_flag){
+public function req_mailing($id,$flag){
 
  $res = $this->model->verify_session();
 

@@ -30,6 +30,7 @@ foreach ($ORDER as  $value) {
     $rep = $name.' '.$lastname;
 
     $date = $value->{'DATE'};
+    $date_ini =  = $value->{'DATE_INI'};
     $desc = $value->{'NOTA'};
 }
 
@@ -40,14 +41,6 @@ foreach ($ORDER as  $value) {
 
 <?php
 
-if ($Pay_flag == 0) {
-  
-  $Pay_req = 'Si';
-}else{
-
-  $Pay_req = 'No';
-}
-
 $message .='<h2 class="h_invoice_header" >Requisicion</h2>
                  <table BORDER="1">
                     
@@ -56,15 +49,15 @@ $message .='<h2 class="h_invoice_header" >Requisicion</h2>
                       
                     </tr>
                     <tr>
-                      <th style="text-align:left;"><strong>Fecha:</strong>'.$meses[date('n',strtotime($date))-1].' '.date(' j, Y',strtotime($date)).'</th>
+                      <th style="text-align:left;"><strong>Fecha solicitud:</strong>'.date('d/M/Y g:i a',strtotime($date)).'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Fecha inicio actividad:</strong>'.date('d/M/Y',strtotime($date_ini)).'</th>
                       
                     </tr>
                     <tr>
                       <th style="text-align:left;"><strong>Solicitante: </strong>'.$rep.'</th>
-                      
-                    </tr>
-                    <tr>
-                      <th style="text-align:left;"><strong>Pago Adelantado: </strong>'.$Pay_req.'</th>
                       
                     </tr>
 </table>

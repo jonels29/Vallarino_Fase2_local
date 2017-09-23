@@ -96,15 +96,15 @@ foreach ($comp as $value) {
                       <th></th>
                     </tr>
                     <tr>  
-                      <th><strong>Fecha:</strong> <?php echo $meses[date('n',strtotime($date))-1].' '.date(' j, Y',strtotime($date)); ?></th>
+                      <th><strong>Fecha solicitud:</strong> <?php echo date('d/M/Y g:i a',strtotime($date)); ?></th>
+                      <th></th>
+                    </tr>
+                    <tr>  
+                      <th><strong>Fecha inicio actividad:</strong> <?php echo date('d/M/Y',strtotime($date_ini)); ?></th>
                       <th></th>
                     </tr>
                     <tr>
                       <th><strong>Responsable: </strong> <?php echo $rep; ?></th>
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <th><strong>Pago Adelantado: </strong> <?php echo $Pay_req; ?></th>
                       <th></th>
                     </tr>
                     <tr>
