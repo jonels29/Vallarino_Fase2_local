@@ -233,7 +233,14 @@ self.location="'.URL.'index.php?url=home/edit_account/'.$id.'";
 </div>
 
 <div class="title col-lg-12"></div>
-<div class="col-lg-6"></div>
+<div class="col-lg-4">
+<?php if ($INF_rol_2 == 1){ ?>
+
+<a title="modificar Item" data-toggle="modal" data-target="#jobModal"  href="javascript:void(0)" onclick="modal_job_list();"><input type="button" id="modify_button" name="modify_button"  class="btn btn-warning btn-sm btn-icon icon-left" value="Asignar Proyectos"/></a>
+
+<?php } ?>
+</div>
+<div class="col-lg-2"></div>
 
 <div class="col-lg-4">
 <button   class="btn btn-primary  btn-block text-left" type="submit" >Actualizar</button>
@@ -252,3 +259,85 @@ self.location="'.URL.'index.php?url=home/edit_account/'.$id.'";
    </div>
  </div>
 </div>
+
+<!-- Modal : Modificacion de proyecto-->
+<div id="jobModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 >Asignacion de Proyecto</h3>
+      </div>
+
+      <div class="col-lg-12 modal-body">
+        
+      <div id='prod'></div>
+
+        <div class="col-lg-3" > 
+             <label class="control-label">Usuario :</label>
+             <input  class="form-control" id="job_id_modal" name="job_id_modal"  readonly/>
+             
+        </div>        
+          
+      <div class="col-lg-12" ></div>  
+
+      <div id='job_list'></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="modify_assigment();" class="btn btn-primary" data-dismiss="modal">Asignar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+	
+function modal_job_list(){
+
+
+var id = document.getElementById('user_2').value;
+
+var name = document.getElementById('name2').value +' '+document.getElementById('lastname2').value;
+
+document.getElementById('job_id_modal').value = name;
+
+
+URL = document.getElementById('URL').value;
+
+var datos= "url=ges_proyectos/list_job_modal/"+id;
+   
+var link= URL+"index.php";
+
+
+var R = confirm('Desea modificar los proyectos asignados a : '+name+' ?');
+
+  if (R==true) {
+
+  $.ajax({
+      type: "GET",
+      url: link,
+      data: datos,
+      success: function(res){
+      
+       $('#job_list').html(res);
+
+        }
+   });
+
+    } 
+
+
+}
+
+
+function modify_assigment(){}
+
+
+</script>
+

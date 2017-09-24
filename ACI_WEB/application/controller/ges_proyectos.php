@@ -280,6 +280,190 @@ public function del_jobs($id){
 }
 
 
+
+public function list_job_modal($id){
+
+$this->model->verify_session();
+
+  $sql = 'SELECT * FROM Jobs_Exp where ID_compania="'.$this->model->id_compania.'" and IsActive="1" order by JobID asc';
+
+  $jobs = $this->model->Query($sql);
+
+  $sql_user = 'SELECT * FROM JOBS_USERS WHERE USER_ID ="'.$id.'" and ID_compania="'.$this->model->id_compania.'"';
+
+  $jobs_user = $this->model->Query($sql_user);
+
+
+$table = '<script type="text/javascript">
+
+ jQuery(document).ready(function($)
+
+  {
+
+   var table = $("#table_job").dataTable({
+   rowReorder: {
+            selector: "td:nth-child(2)"
+        },
+
+      responsive: true,
+      pageLength: 50,
+      dom: "Bfrtip",
+      bSort: false,
+      select: false,
+
+      info: false,
+        buttons: [
+
+          {
+
+          extend: "excelHtml5",
+
+          text: "Exportar",
+
+          title: "Lista",
+
+           
+          exportOptions: {
+
+                columns: ":visible",
+
+                 format: {
+                    header: function ( data ) {
+
+                      var StrPos = data.indexOf("<div");
+
+                        if (StrPos<=0){
+
+                          
+                          var ExpDataHeader = data;
+
+                        }else{
+                       
+                          var ExpDataHeader = data.substr(0, StrPos); 
+
+                        }
+                       
+                      return ExpDataHeader;
+                      }
+                    }
+                 
+                  }
+                
+
+          },
+
+          {
+
+          extend:  "colvis",
+
+          text: "Seleccionar",
+
+          columns: ":gt(0)"           
+
+         },
+
+         {
+
+          extend: "colvisGroup",
+
+          text: "Ninguno",
+
+          show: [0],
+
+          hide: [":gt(0)"]
+
+          },
+
+          {
+
+            extend: "colvisGroup",
+
+            text: "Todo",
+
+            show: ["*"]
+
+          }
+
+          ]
+
+   
+
+    });
+
+
+table.yadcf(
+[
+{column_number : 0,
+ column_data_type: "html",
+ html_data_type: "text" 
+},
+{column_number : 2}
+],
+{cumulative_filtering: true}); 
+
+});
+
+
+  </script>
+
+
+  <table id="table_job"  class="display nowrap table  table-condensed table-striped table-bordered" cellspacing="0" >
+
+    <thead>
+      <tr>
+        <th width="10%"></th>
+        <th width="20%">Job Id</th>
+        <th width="10%">Descripcion</th>
+      </tr>
+    </thead>
+   <tbody>';
+
+   $i = 0;
+
+    foreach ($jobs as $value) {
+
+
+        $value = json_decode($value);
+
+
+        $check = '';
+        $job_id = $value->{'JobID'};
+
+
+            foreach ($jobs_user as $value_user) {
+
+
+            $value_user = json_decode($value_user);
+
+            $user_job_id = $value_user->{'JOB_ID'};
+
+              if ($job_id == $user_job_id) {
+
+                $check = 'checked';
+                
+              }
+
+
+            }
+
+
+          $table.= '<tr>
+            <td width="10%"><input type="checkbox" name="'.$i.'" id="'.$i.'" value="'.$job_id.'" '.$check.'></td>
+            <td width="10%">'.$value->{'JobID'}.'</td>
+            <td width="20%">'.$value->{'Description'}.'</td>
+          </tr>';
+
+          $i++;
+
+    }
+
+    $table .= '</tbody>
+         </table>';
+
+  echo $table;
+
+}
+
 ///////Corchete de la clase/////////
 }
 
