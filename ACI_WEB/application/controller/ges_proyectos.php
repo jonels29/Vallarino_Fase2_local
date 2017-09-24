@@ -306,7 +306,7 @@ $table = '<script type="text/javascript">
         },
 
       responsive: true,
-      pageLength: 50,
+      pageLength: 5,
       dom: "Bfrtip",
       bSort: false,
       select: false,
@@ -397,7 +397,7 @@ table.yadcf(
  column_data_type: "html",
  html_data_type: "text" 
 },
-{column_number : 2}
+{column_number : 1}
 ],
 {cumulative_filtering: true}); 
 
@@ -411,9 +411,9 @@ table.yadcf(
 
     <thead>
       <tr>
-        <th width="10%"></th>
-        <th width="20%">Job Id</th>
-        <th width="10%">Descripcion</th>
+        <th width="1%"></th>
+        <th width="3%">Job Id</th>
+        <th width="20%">Descripcion</th>
       </tr>
     </thead>
    <tbody>';
@@ -448,8 +448,8 @@ table.yadcf(
 
 
           $table.= '<tr>
-            <td width="10%"><input type="checkbox" name="'.$i.'" id="'.$i.'" value="'.$job_id.'" '.$check.'></td>
-            <td width="10%">'.$value->{'JobID'}.'</td>
+            <td width="1%" ><CENTER><input type="checkbox" name="'.$i.'" id="'.$i.'" value="'.$job_id.'" '.$check.'></CENTER></td>
+            <td width="3%" style="text-align:center">'.$value->{'JobID'}.'</td>
             <td width="20%">'.$value->{'Description'}.'</td>
           </tr>';
 

@@ -315,9 +315,7 @@ var datos= "url=ges_proyectos/list_job_modal/"+id;
 var link= URL+"index.php";
 
 
-var R = confirm('Desea modificar los proyectos asignados a : '+name+' ?');
 
-  if (R==true) {
 
   $.ajax({
       type: "GET",
@@ -330,13 +328,21 @@ var R = confirm('Desea modificar los proyectos asignados a : '+name+' ?');
         }
    });
 
-    } 
+     
 
 
 }
 
 
-function modify_assigment(){}
+function modify_assigment(){
+
+
+var R = confirm('Desea modificar los proyectos asignados a : '+name+' ?');
+
+  if (R==true) {}
+
+
+}
 
 
 </script>
