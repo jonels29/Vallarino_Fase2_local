@@ -107,6 +107,14 @@ foreach ($comp as $value) {
                       <th><strong>Responsable: </strong> <?php echo $rep; ?></th>
                       <th></th>
                     </tr>
+                     <tr>
+                      <th><strong>Pago Adelantado: </strong> <?php echo $Pay_req; ?></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th><strong>Requisicion Urgente: </strong> <?php echo $isUrgent; ?></th>
+                      <th></th>
+                    </tr>
                     <tr>
                       <th></th>
                       <th></th>

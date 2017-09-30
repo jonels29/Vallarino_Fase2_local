@@ -420,7 +420,7 @@ var x=document.getElementById(UNIID).innerHTML;
 	<legend><h4>Opciones</h4></legend>
 
 	<input type="CHECKBOX" name="urgent_chk" id="urgent_chk" value="0" />&nbsp<label>Requisicion Urgente</label><br>
-	<input type="CHECKBOX" name="pay_chk" id="pay_chk" value="1" />&nbsp<label>Pago Adelantado</label>
+	<input type="CHECKBOX" name="pay_chk" id="pay_chk" value="0" />&nbsp<label>Pago Adelantado</label>
 
 	
 </fieldset>
@@ -547,15 +547,24 @@ if (r == true) {
         spin_show();
 
         var link = URL+"index.php";
-        var isUrgent  = document.getElementById('urgent_chk').value; 
+               
 
-        if (isUrgent == 0) {
+        if (document.getElementById('urgent_chk').checked) {
 
-        	var set_urgent = 0;
+        	var set_urgent = document.getElementById('urgent_chk').value;
 
         }else{
 
         	var set_urgent = 1;
+        }
+
+        if (document.getElementById('pay_chk').checked) {
+
+        	var isPay = document.getElementById('pay_chk').value;
+
+        }else{
+
+        	var isPay = 1;
         }
 
         //REGITRO DE CABECERA
@@ -566,7 +575,7 @@ if (r == true) {
 	        var nota  = document.getElementById('nota').value;
 	        var date_ini = document.getElementById('date_ini').value;
 
-	        	var datos= "url=bridge_query/set_req_header/"+JOBID+"/"+nota+"/"+set_urgent+"/"+date_ini; //LINK DEL METODO EN BRIDGE_QUERY
+	        	var datos= "url=bridge_query/set_req_header/"+JOBID+"/"+nota+"/"+set_urgent+"/"+date_ini+"/"+isPay; //LINK DEL METODO EN BRIDGE_QUERY
 
 
 
@@ -600,7 +609,7 @@ if (r == true) {
 					      
 					if(res==1){//TERMINA EL LLAMADO AL METODO set_req_items SI ESTE DEVUELV UN '1', indica que ya no hay items en el array que procesar.
 									
-						send_mail(link,Req_NO,set_urgent);
+						send_mail(link,Req_NO,set_urgent,isPay);
 				
 					}
 
@@ -659,10 +668,10 @@ return val;
 							
 }
 	
-function send_mail(link,Req_NO,flag){
+function send_mail(link,Req_NO,flag_urgent,isPay){
 
        //ENVIO POR MAIL 
-	var datos= "url=ges_requisiciones/req_mailing/"+Req_NO+"/"+flag; //LINK A LA PAGINA DE MAILING
+	var datos= "url=ges_requisiciones/req_mailing/"+Req_NO+"/"+flag_urgent+"/"+isPay; //LINK A LA PAGINA DE MAILING
     
 
 	$.ajax({
@@ -674,11 +683,11 @@ function send_mail(link,Req_NO,flag){
 			if(res==0){
 
 			 alert('NO SE HA PODIDO ENVIAR LA NOTIFICACION DE ORDEN DE COMPRA.');
-			 msg(link,Req_NO);
+			 msg(link,Req_NO,isPay,flag_urgent);
 			 
 			}else{  
 			
-			 msg(link,Req_NO);
+			 msg(link,Req_NO,isPay,flag_urgent);
 			}
 
 		}
@@ -689,7 +698,7 @@ function send_mail(link,Req_NO,flag){
 }		 			
 
 //FUNCION PARA SOLICITAR IMPRESION DEL REPORTE
-function msg(link,Req_NO){
+function msg(link,Req_NO,isPay,flag_urgent){
 
 spin_hide();
    alert("La orden se ha enviado con exito");
@@ -700,7 +709,7 @@ spin_hide();
          
          count = 1;
          LineArray.length='';
-         window.open(link+'?url=ges_requisiciones/req_print/'+Req_NO,'_self');
+         window.open(link+'?url=ges_requisiciones/req_print/'+Req_NO+"/"+isPay+"/"+flag_urgent,'_self');
                  
     }else{
 

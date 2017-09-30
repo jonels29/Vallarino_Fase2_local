@@ -2047,7 +2047,17 @@ case "ReqStat":
 $table = '';
 $clause='';
 
-$clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_DETAIL.ID_compania="'.$this->model->id_compania.'" ';
+
+
+if ($this->model->active_user_role != 'admin' && $this->model->rol_campo=='1' && $this->rol_compras !='1') {
+  
+    $clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_DETAIL.ID_compania="'.$this->model->id_compania.'" and REQ_HEADER.USER="'.$this->model->active_user_id.'" ';
+       
+}else{
+ 
+    $clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_DETAIL.ID_compania="'.$this->model->id_compania.'" ';
+
+}
 
 if($date1!=''){
    if($date2!=''){
@@ -2211,7 +2221,155 @@ $table.="<tr  >
 $table.= '</tbody></table> <div class="separador col-lg-12"></div><div id="info"></div>'; 
 
 break;
+//Fin Reporte de requisiciones
 
+//REPORTE DE ITEM POR REQUISICIONES
+
+case 'ItemXReq':
+
+
+$table ='';
+$sql_item ='';
+$clause ='';
+
+
+$sql_item ='SELECT * FROM `REQ_DETAIL` 
+inner join REQ_HEADER ON REQ_HEADER.NO_REQ = REQ_DETAIL.NO_REQ ';
+
+    if ($this->model->active_user_role != 'admin' && $this->model->rol_campo=='1' && $this->rol_compras !='1') {
+  
+        $clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_DETAIL.ID_compania="'.$this->model->id_compania.'" and REQ_HEADER.USER="'.$this->model->active_user_id.'" ';
+       
+    }else{
+ 
+        $clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_DETAIL.ID_compania="'.$this->model->id_compania.'" ';
+
+    }
+
+
+if($date1!=''){
+   if($date2!=''){
+      $clause.= ' and  DATE >= "'.$date1.'%" and DATE <= "'.$date2.'%" ';           
+    }
+   if($date2==''){ 
+     $clause.= ' and  DATE like "'.$date1.'%" ';
+   }
+}
+
+
+$sql_item.= $clause;
+
+
+$table.= '<script type="text/javascript">
+ jQuery(document).ready(function($)
+  {
+   var table = $("#table_reportItemxReq").dataTable({
+      
+      responsive: false,
+      pageLength: 10,
+      dom: "Bfrtip",
+      bSort: false,
+      select: false,
+ 
+      info: false,
+        buttons: [
+          {
+          extend: "excelHtml5",
+          text: "Exportar",
+          title: "Reporte_de_requisicionesXitem",
+           
+          exportOptions: {
+                columns: ":visible",
+                 format: {
+                    header: function ( data ) {
+                      var StrPos = data.indexOf("<div");
+                        if (StrPos<=0){
+                          
+                          var ExpDataHeader = data;
+                        }else{
+                       
+                          var ExpDataHeader = data.substr(0, StrPos); 
+                        }
+                       
+                      return ExpDataHeader;
+                      }
+                    }
+                 
+                  }
+                
+          },
+          {
+          extend:  "colvis",
+          text: "Seleccionar",
+          columns: ":gt(0)"           
+         },
+         {
+          extend: "colvisGroup",
+          text: "Ninguno",
+          show: [0],
+          hide: [":gt(0)"]
+          },
+          {
+            extend: "colvisGroup",
+            text: "Todo",
+            show: ["*"]
+          }
+          ]
+   
+    });
+table.yadcf(
+[
+{column_number : 0,
+ column_data_type: "html",
+ html_data_type: "text"
+ },
+{column_number : 2},
+{column_number : 3}
+],
+{cumulative_filtering: true, 
+filter_reset_button_text: false}); 
+});
+
+  </script>
+   <table id="table_reportItemxReq" class="display nowrap table table-condensed table-striped table-bordered" >
+   
+    <thead>
+      <tr>
+        
+        <th width="10%">No. Ref.</th>
+        <th width="25%">Descripcion</th>
+        <th width="10%">Cant.</th>
+        <th width="10%">Unidad</th>
+               
+      </tr>
+    </thead>
+    <tbody>';
+
+
+  $Item = $this->model->Query($sql_item);
+
+      foreach ($Item as $datos) {
+
+        $Item = json_decode($datos);
+
+        $ID = '"'.$Item->{'NO_REQ'}.'"';
+
+        $URL = '"'.URL.'"';
+
+
+              $table.="<tr  >
+                <td width='10%' style='text-align:center'><a href='#' onclick='javascript: show_req(".$URL.",".$ID.");'>".$Item->{'NO_REQ'}."</a></td>
+                <td width='25%' >".$Item->{'DESCRIPCION'}."</td>
+                <td width='10%' style='text-align:right'>".$Item->{'CANTIDAD'}."</td>
+                <td width='10%' style='text-align:center'>".$Item->{'UNIDAD'}."</td>
+                      </tr>";
+
+      } 
+
+  $table.= '</tbody></table> <div class="separador col-lg-12"></div><div id="info"></div>'; 
+
+  break;
+//Fin de Reporte de Items x Requisicion
 
 //Reporte de requisiciones urgentes
 case "ReqUrg":
@@ -2219,7 +2377,17 @@ case "ReqUrg":
 $table = '';
 $clause='';
 
-$clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_HEADER.isUrgent="0"';
+if ($this->model->active_user_role != 'admin' && $this->model->rol_campo=='1' && $this->rol_compras !='1') {
+  
+    $clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'"  and REQ_HEADER.USER="'.$this->model->active_user_id.'" and REQ_HEADER.isUrgent="0" ';
+       
+}else{
+ 
+    $clause.= 'where REQ_HEADER.ID_compania="'.$this->model->id_compania.'" and REQ_HEADER.isUrgent="0"';
+
+}
+
+
 
 if($date1!=''){
    if($date2!=''){
@@ -3528,7 +3696,7 @@ echo $codes;
 
 
 //REQUISICIONES//////////////////////////////////////////////////////////////////////////////////////////////////////////
-public function set_req_header($JobID,$nota,$flag,$date_ini){
+public function set_req_header($JobID,$nota,$flag,$date_ini,$Pay_flag){
 $this->SESSION();
 
 $Req_NO = $this->model->Get_Req_No($JobID);
@@ -3552,7 +3720,8 @@ $value_to_set  = array(
   'USER' => $this->model->active_user_id, 
   'DATE' => date("Y-m-d H:i:s"),
   'DATE_INI' => $date_ini,
-  'isUrgent' => $flag  
+  'isUrgent' => $flag,
+  'isPay' => $Pay_flag
   );
 
 $res = $this->model->insert('REQ_HEADER',$value_to_set);
@@ -4594,13 +4763,48 @@ $this->SESSION();
 $jobs = $this->model->get_JobList(); 
 
 
-foreach ($jobs as $value) {
+if ($this->model->active_user_role !='admin') {
+  
 
- $value = json_decode($value);
+    $sql = "SELECT * FROM JOBS_USERS WHERE USER_ID='".$this->model->active_user_id ."' and ID_compania='".$this->model->id_compania."'";
+    $jobs_assigned = $this->model->Query($sql); 
 
-  $list.= '<option value="'.$value->{'JobID'}.'" >'.$value->{'JobID'}.'-'.$value->{'Description'}.'</option>';
 
-}
+        foreach ($jobs as $value) 
+            {
+
+              $value = json_decode($value);
+
+              
+
+                  foreach ($jobs_assigned as $value2) {
+
+                    $value2 = json_decode($value2);
+
+                    if ($value2->{'JOB_ID'} == $value->{'JobID'}) {
+                      
+                      $list.= '<option value="'.$value->{'JobID'}.'" >'.$value->{'JobID'}.'-'.$value->{'Description'}.'</option>';
+
+                    }
+
+                  }
+
+            }
+
+      }else{
+
+          foreach ($jobs as $value) {
+
+              $value = json_decode($value);
+
+              $list.= '<option value="'.$value->{'JobID'}.'" >'.$value->{'JobID'}.'-'.$value->{'Description'}.'</option>';
+
+          }
+      }
+
+
+
+
 
 echo $list;
 

@@ -30,7 +30,7 @@ foreach ($ORDER as  $value) {
     $rep = $name.' '.$lastname;
 
     $date = $value->{'DATE'};
-    $date_ini =  = $value->{'DATE_INI'};
+    $date_ini = $value->{'DATE_INI'};
     $desc = $value->{'NOTA'};
 }
 
@@ -40,6 +40,24 @@ foreach ($ORDER as  $value) {
 <div  class="col-xs-12">
 
 <?php
+
+
+if ($Pay_flag == 0) {
+  
+  $Pay_req = 'Si';
+}else{
+
+  $Pay_req = 'No';
+}
+
+
+if ($flag == 0) {
+  
+  $isUrgent = 'Si';
+}else{
+
+  $isUrgent = 'No';
+}
 
 $message .='<h2 class="h_invoice_header" >Requisicion</h2>
                  <table BORDER="1">
@@ -58,6 +76,14 @@ $message .='<h2 class="h_invoice_header" >Requisicion</h2>
                     </tr>
                     <tr>
                       <th style="text-align:left;"><strong>Solicitante: </strong>'.$rep.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Pago Adelantado: </strong>'.$Pay_req.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Requisicion Urgente: </strong>'.$isUrgent.'</th>
                       
                     </tr>
 </table>
@@ -146,6 +172,7 @@ foreach ($smtp as $smtp_val) {
 
 $mail->Body = $message_to_send;
 
+
   if ($flag == 0) {
   
     $mail->Priority = 1;
@@ -158,6 +185,7 @@ $mail->Body = $message_to_send;
     $subject ='Requisicion-'.$ref;
 
 }
+
 
 $mail->Subject = utf8_decode($subject);
 

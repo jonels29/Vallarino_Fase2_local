@@ -1,3 +1,45 @@
+<!--INI DIV ERRO-->
+<div id="ERROR" ></div>
+
+<!--ERROR -->
+
+<div id="ErrorModal" class="modal fade" role="dialog">
+
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" onclick="javascript:history.go(-1);" class="close" data-dismiss="modal">&times;</button>
+        <h3 >Error</h3>
+      </div>
+
+      <div class="col-lg-12 modal-body">
+
+      <!--ini Modal  body-->  
+
+            <div id='ErrorMsg'></div>
+
+      <!--fin Modal  body-->
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" onclick="javascript:history.go(-1); return true;" data-dismiss="modal" class="btn btn-primary" >OK</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--modal-->
+<!--INI DIV ERROR-->
+
 <?php
 error_reporting(0);
 
@@ -283,7 +325,7 @@ self.location="'.URL.'index.php?url=home/edit_account/'.$id.'";
           
       <div class="col-lg-12" ></div>  
 
-      <div id='job_list'></div>
+      <div id='job_list' class="proy"></div>
 
       </div>
       <div class="modal-footer">
@@ -337,12 +379,70 @@ var link= URL+"index.php";
 function modify_assigment(){
 
 
+LineArray = [];
+
+var theTbl = document.getElementById('table_job'); //objeto de la tabla que contiene los datos de items
+
+var userid = document.getElementById('user_2').value;
+
+var name = document.getElementById('name2').value +' '+document.getElementById('lastname2').value;
+
+
 var R = confirm('Desea modificar los proyectos asignados a : '+name+' ?');
 
-  if (R==true) {}
+  if (R==true) {
 
 
+  	for(var i=1; i<theTbl.rows.length-1 ;i++) //BLUCLE PARA LEER LINEA POR LINEA LA TABLA theTbl
+
+	{
+
+  		var chk = document.getElementById(i).checked;
+  		
+        	 if(chk){
+
+              		
+                            jobid       = theTbl.rows[i].cells[1].innerHTML;
+                            desc = theTbl.rows[i].cells[2].innerHTML;
+                            
+
+                            LineArray[i] = jobid+'@'+desc+'@'+userid;               
+                     
+
+                            
+                       }
+                  
+
+       } //FIN BLUCLE PARA LEER CELDA POR CELDA DE CADA LINEA
+       
+    URL = document.getElementById('URL').value;
+    var link= URL+"index.php";
+
+         $.ajax({
+
+         type: "GET",
+
+         url:  link,
+
+         data:  {url: 'ges_proyectos/set_assigment/'+userid , Data : JSON.stringify(LineArray)}, 
+
+         success: function(res){
+
+            alert('Asignacion Completada!');
+
+            
+        	}
+
+        }); 
+
+   
+
+  }
 }
+
+
+
+
 
 
 </script>

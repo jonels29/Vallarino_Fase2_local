@@ -304,7 +304,7 @@ $table = '<script type="text/javascript">
    rowReorder: {
             selector: "td:nth-child(2)"
         },
-
+      paging: false,
       responsive: true,
       pageLength: 5,
       dom: "Bfrtip",
@@ -418,7 +418,7 @@ table.yadcf(
     </thead>
    <tbody>';
 
-   $i = 0;
+   $i = 1;
 
     foreach ($jobs as $value) {
 
@@ -439,7 +439,7 @@ table.yadcf(
 
               if ($job_id == $user_job_id) {
 
-                $check = 'checked';
+                $check = 'checked="checked"';
                 
               }
 
@@ -448,7 +448,7 @@ table.yadcf(
 
 
           $table.= '<tr>
-            <td width="1%" ><CENTER><input type="checkbox" name="'.$i.'" id="'.$i.'" value="'.$job_id.'" '.$check.'></CENTER></td>
+            <td width="1%" ><CENTER><input type="checkbox" name="'.$i.'" id="'.$i.'" value="'.$job_id.'" '.$check.' ></CENTER></td>
             <td width="3%" style="text-align:center">'.$value->{'JobID'}.'</td>
             <td width="20%">'.$value->{'Description'}.'</td>
           </tr>';
@@ -461,6 +461,73 @@ table.yadcf(
          </table>';
 
   echo $table;
+
+}
+
+public function clear_assigment($userid){
+
+$this->model->verify_session();
+
+$del_sql = 'DELETE FROM JOBS_USERS WHERE ID_compania ="'.$this->model->id_compania.'" and USER_ID="'.$userid.'";';
+$res = $this->model->Query($del_sql);
+
+return 1;
+}
+
+public function set_assigment($userid){
+
+$this->model->verify_session();
+
+$del = $this->clear_assigment($userid);
+
+if($del == 1){
+
+$data = json_decode($_GET['Data']);
+
+
+
+  foreach ($data as $key => $value) {
+   
+
+    if($value){
+
+      list($jobid,$desc,$userid) = explode('@', $value );
+
+        $values1 = array(
+            'ID_compania' => $this->model->id_compania,
+            'JOB_ID'=>$jobid,
+            'DESCRIPTION'=>$desc,
+            'USER_ID'=>$userid
+             );
+
+
+      $this->model->insert('JOBS_USERS',$values1);
+      $this->CheckError();
+
+    }
+  }
+
+  }
+
+}
+
+
+public function CheckError(){
+
+
+  $CHK_ERROR =  $this->model->read_db_error();
+
+
+  if ($CHK_ERROR!=''){ 
+
+   
+    die( "<script>  $(window).on('load', function () {   
+                           $('#ErrorModal').modal('show');
+                           $('#ErrorMsg').html('".$CHK_ERROR."');
+                         }); 
+          </script>");
+
+  }
 
 }
 
