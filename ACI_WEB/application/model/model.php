@@ -964,7 +964,68 @@ public function read_db_error(){
 }
 
 
+public function send_mail($email,$name,$lastname,$subject,$title,$body){
 
+$res = $this->verify_session();
+
+
+echo $message_to_send ='<html>
+<head>
+<meta charset="UTF-8">
+<title>'.$title.'</title>
+</head>
+<body>'.$body.'</body>
+</html>';
+
+
+require 'PHP_mailer/PHPMailerAutoload.php';
+      
+    $mail = new PHPMailer;
+
+    $mail->IsSMTP(); // enable SMTP
+    $mail->IsHTML(true);
+
+
+$sql = "SELECT * FROM CONF_SMTP WHERE ID='1'";
+
+$smtp= $this->Query($sql);
+
+    foreach ($smtp as $smtp_val) {
+        $smtp_val= json_decode($smtp_val);
+
+        $mail->Host =     $smtp_val->{'HOSTNAME'};
+        $mail->Port =     $smtp_val->{'PORT'};
+        $mail->Username = $smtp_val->{'USERNAME'};
+        $mail->Password = $smtp_val->{'PASSWORD'};
+        $mail->SMTPAuth = $smtp_val->{'Auth'};
+        $mail->SMTPSecure=$smtp_val->{'SMTPSecure'};
+        $mail->SMTPDebug= $smtp_val->{'SMTPSDebug'};
+
+        $mail->SetFrom($smtp_val->{'USERNAME'});
+
+    }
+
+    $mail->Body = $message_to_send;
+    $mail->Subject = utf8_decode($subject);
+    $mail->AddAddress($email,$name.' '.$lastname);
+
+
+if(!$mail->send()) {
+ 
+
+   $alert .= 'Message could not be sent.';
+   $alert .= 'Mailer Error: ' . $mail->ErrorInfo;
+
+  //echo '<script> alert("'.$alert.'"); </script>';
+
+} else {
+
+  ECHO '1';
+
+   // echo '<script> alert("Message has been sent"); </script>';
+}
+}
+//CORCHETE DE FIN DE LA CLASE
 }
 ?>
 

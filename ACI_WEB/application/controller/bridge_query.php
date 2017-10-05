@@ -5107,12 +5107,21 @@ public function set_req_quota($REQ_NO,$ID_compania){
 
 $this->SESSION();
 
+$message = '';
+$req_usr = '';
+$req_value = '';
+
 if($_SESSION){
 
 $id_user = $this->model->active_user_id;
 
 $VALID = $this->model->Query_value('REQ_QUOTA','NO_REQ','WHERE  NO_REQ ="'.$REQ_NO.'" 
                                                            AND  ID_compania="'.$ID_compania.'"');
+
+
+$sql = 'SELECT * FROM REQ_HEADER WHERE NO_REQ="'.$REQ_NO.'"';
+$req_value = $this->model->Query($sql);
+
 
 if(!$VALID){
 
@@ -5130,6 +5139,70 @@ if(!$VALID){
        </script>';
 
 
+  
+
+
+       foreach ($req_value as $mail_values) {
+         
+
+          $mail_values = json_decode($mail_values); 
+
+
+          $req_usr = $this->model->Query('SELECT * FROM SAX_USER WHERE id="'.$mail_values->{'USER'}.'"');
+
+
+            $Date = $mail_values->{'DATE'};
+            $Date_ini = $mail_values->{'DATE_INI'};
+            $isClose = $mail_values->{'st_closed'};
+
+
+
+              foreach ($req_usr as $usr_value) {
+
+
+                $usr_value = json_decode($usr_value);
+
+                $name = $usr_value->{'name'};
+                $lastname = $usr_value->{'lastname'};
+                $email  = $usr_value->{'email'};
+
+
+              }
+
+
+          $title = 'Notificacion de Cotizando';
+          $subject.= $name.' '.$lastname.' esta cotizando tu requisicion '.$REQ_NO;       
+
+          $message.= '<h2 class="h_invoice_header" >Cotizando Requicion #:</h2>
+                 <table BORDER="1">
+                    
+                    <tr>
+                      <th style="text-align:left;"><strong>Referencia: </strong>'.$REQ_NO.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Fecha solicitud:</strong>'.date('d/M/Y g:i a',strtotime($Date)).'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Fecha inicio actividad:</strong>'.date('d/M/Y',strtotime($Date_ini)).'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Solicitante: </strong>'.$name.' '.$lastname.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Comprador: </strong>'.$this->model->active_user_name.' '.$this->model->active_user_lastname.'</th>
+                      
+                    </tr>
+                    
+          </table>';
+
+        }
+
+       $res = $this->model->send_mail($email,$name,$lastname,$subject,$title,$message);
+
 }else{
 
 
@@ -5140,11 +5213,8 @@ if(!$VALID){
 
 }
 
+
 }
-
-
-
-
 
 
 }
