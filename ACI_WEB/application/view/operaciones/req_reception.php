@@ -87,53 +87,23 @@ flag = set_items(); //GUARDO ITEM EN ARRAY
     // REGISTROS DE ITEMS 
           var arrLen = LineArray.length;
           var Req_NO = document.getElementById('buscar').value;
+                    
 
-          count=0;
-
-          $.each(LineArray, function(index,value) {//BUCLE PARA LEER CADA REGISTRO DE ITEM GUARDADO EN EL ARREGLO LineArray
-
-            setTimeout(function(){ //Esta funcion aplica un retrso de 500mseg por cada ejecucion. 
- 
- 
-          if(value){            
-              count++; //Contabiliza las lineas de registros que se mandan a procesar. 
-
-            var datos= "url=bridge_query/set_req_recept"+value+'/'+Req_NO+'/'+count+'/'+arrLen;//LINK DEL METODO EN BRIDGE_QUERY
-           
-            console.log(datos);             
-            if(value){
 
                       $.ajax({
+
                         type: "GET",
                         url: link,
-                        data: datos,
+                        data:  {url: 'bridge_query/set_req_recept/'+Req_NO, Data : JSON.stringify(LineArray)},
                         success: function(res){
-
-                          //console.log('RES:'+res);
-                          //alert(res);
                             
-                          if(res==1){//TERMINA EL LLAMADO AL METODO set_req_items SI ESTE DEVUELV UN '1', indica que ya no hay items en el array que procesar.
-                          
-                             count = 1;
+                                               
                              LineArray.length='';
-                             get_reception();
-
-
-                          }
+                             get_reception();                          
 
                         }
                       }); 
 
-
-
-            }
-
-}
-                 
-            }, 500);
-                                              
-          }); 
-        //FIN REGISTROS DE ITEMS
 
 }
 
@@ -207,12 +177,13 @@ while (i <= cantLineas){
           lineid = 'ID'+i;
           REG =  document.getElementById(lineid).innerHTML;
 
-          QTYRCV = 'QTYRCV'+REG;
-          QTYORD = 'QTYORD'+REG;
-          QTYVAL = 'rec'+REG;
+          var QTYRCV = 'QTYRCV'+REG;
+          var QTYORD = 'QTYORD'+REG;
+          var QTYVAL = 'rec'+REG;
+
           
-          rec = document.getElementById(QTYRCV).value;
-          ord = document.getElementById(QTYORD).value;
+          rec = document.getElementById(QTYRCV).innerHTML;
+          ord = document.getElementById(QTYORD).innerHTML;
           val = document.getElementById(QTYVAL).value;
 
           console.log('a:'+rec+' b:'+ord+' c:'+val);
@@ -224,13 +195,13 @@ while (i <= cantLineas){
                 
             console.log('c:'+val);
        
-                             cell += '/'+REG;//agrego el registo de las demas columnas                              
+                             cell += REG+'@'+ord;//agrego el registo de las demas columnas                              
                              
                              val  = Number(val);
                              REST = Number(ord) - Number(rec); 
 
                                                                                
-                             compare = (parseFloat(val) > parseFloat(REST));
+                            compare = (parseFloat(val) > parseFloat(REST));
 
                              //console.log(compare);
 
@@ -247,7 +218,7 @@ while (i <= cantLineas){
                               }
 
                             
-                             cell += '/'+val;//agrego el registo de las demas columnas                              
+                             cell += '@'+val;//agrego el registo de las demas columnas                              
                              
          //INSERTA valor de CELL en el arreglo 
          LineArray[y]=cell;

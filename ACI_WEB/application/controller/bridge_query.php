@@ -5162,16 +5162,18 @@ if(!$VALID){
 
                 $usr_value = json_decode($usr_value);
 
-                $name = $usr_value->{'name'};
-                $lastname = $usr_value->{'lastname'};
-                $email  = $usr_value->{'email'};
+                $name= $usr_value->{'name'};
+                $lastname= $usr_value->{'lastname'};
 
+                $to = $usr_value->{'email'}.';'.$usr_value->{'name'}.';'.$usr_value->{'lastname'}; //FORMATO REQUERIDO PARA PASAR LAS DIRECCIONES AL METODO
 
+                $address = array($to);
+                
               }
 
-
+    
           $title = 'Notificacion de Cotizando';
-          $subject.= $name.' '.$lastname.' esta cotizando tu requisicion '.$REQ_NO;       
+          $subject.= $this->model->active_user_name.' '.$this->model->active_user_lastname.' esta cotizando tu requisicion '.$REQ_NO;       
 
           $message.= '<h2 class="h_invoice_header" >Cotizando Requicion #:</h2>
                  <table BORDER="1">
@@ -5201,7 +5203,7 @@ if(!$VALID){
 
         }
 
-       $res = $this->model->send_mail($email,$name,$lastname,$subject,$title,$message);
+       $res = $this->model->send_mail($address,$subject,$title,$message);
 
 }else{
 
@@ -5620,25 +5622,108 @@ ECHO $count;
 
 
 
-public function set_req_recept($ITEM,$QTY,$REQ_NO,$COUNT, $ARRGL){
+public function set_req_recept($REQ_NO){
+
 $this->SESSION();
 
-    $value_to_set  = array( 
-      'NO_REQ' => $REQ_NO, 
-      'ITEM' => $ITEM, 
-      'QTY' => $QTY, 
-      'USER' => $this->model->active_user_id, 
-      'ID_compania' => $this->model->id_compania
-      );
+
+$message .='<h2 class="h_invoice_header" >Requisicion</h2>
+                 <table BORDER="1">
+                    
+                    <tr>
+                      <th style="text-align:left;"><strong>Referencia: </strong>'.$REQ_NO.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Personal de Campo: </strong>'.$this->model->active_user_name.' '.$this->model->active_user_lastname.'</th>
+                      
+                    </tr>
+                    <tr>
+                      <th style="text-align:left;"><strong>Fecha inicio actividad: </strong>'.date('d/M/Y').'</th>
+                      
+                    </tr>
+
+</table>
+                  
+<br>
+<TABLE border="1" >
+                  <TR >
+                       <TH width="15%">Item</TH>
+                       <TH width="35%">Descripcion</TH>
+                       <TH width="15%">Cant. Total</TH>
+                       <TH width="15%">Cant. Ordenada</TH>
+                       <TH width="10%">Cant. Recibida</TH>
+                  </TR>';
 
 
-    $res = $this->model->insert('REQ_RECEPT',$value_to_set);
 
-    if($COUNT==$ARRGL){ //SI LOS ITEMS PROCESADOS CONTABILIZADOS CON count ES IGUAL EL NUMERO DE LINEAS EN EL ARRAY (ARRLENG) entonces devuelve 0 para terminar el proceso de insesion de registros
-      echo '1'; 
-    }else{ 
-      echo '0';
-    } 
+  $data = json_decode($_GET['Data']);
+
+
+
+    foreach ($data as $key => $value) {
+   
+
+      if($value){
+
+        list($item,$ord,$qty) = explode('@',$value);
+
+          $values_insert = array(
+            'NO_REQ' => $REQ_NO, 
+            'ITEM' => $item, 
+            'QTY' => $qty, 
+            'USER' => $this->model->active_user_id, 
+            'ID_compania' => $this->model->id_compania
+             );
+
+                $res = $this->model->insert('REQ_RECEPT',$values_insert);
+
+                //CONSTRUCCION DEL EMAIL DE NOTIFICACION
+
+                $clause = 'WHERE ProductID="'.$item.'" and NO_REQ="'.$REQ_NO.'" and ID_compania="'.$this->model->id_compania.'"';
+
+                $total = $this->model->Query_value('REQ_DETAIL','CANTIDAD',$clause);
+
+                $desc = $this->model->Query_value('REQ_DETAIL','DESCRIPCION',$clause);
+
+      $message.= '<tr>
+                     <td width="15%" style="text-align: center;">'.$item.'</td>
+                     <td width="35%" style="text-align: center;">'.$desc.'</td>
+                     <td width="15%" class="numb" style="text-align: center; padding-right">'.number_format($total,2).'</td>
+                     <td width="15%" class="numb" style="text-align: center; padding-right">'.number_format($ord,2).'</td>
+                     <td width="15%" class="numb" style="text-align: center; padding-right">'.number_format($qty,2).'</td>
+                  </tr>';
+     
+      }
+    }
+
+
+    $message .= '</table>';
+
+    $subject .= $this->model->active_user_name.' '.$this->model->active_user_lastname.' ha reportado ingreso de materiales de la requisicion: '.$REQ_NO;
+
+    $title = 'Notificacion de ingreso de materiales';
+
+    //VERIFICA USUARIOS CON OPCION D ENOTIFICACION DE ORDEN DE COMPRAS
+    $sql = 'SELECT name, lastname, email from SAX_USER WHERE notif_oc="1" and onoff="1"';
+    $remitent = $this->model->Query($sql);
+
+      
+      $address =array();
+
+      foreach ($remitent as  $value) {
+          $value = json_decode($value);
+
+          $to = $value->{'email'}.';'.$value->{'name'}.';'.$value->{'lastname'}; //FORMATO REQUERIDO PARA PASAR LAS DIRECCIONES AL METODO
+
+          array_push($address, $to);
+    
+      }
+
+
+      $res = $this->model->send_mail($address,$subject,$title,$message);
+
+
 }
 
 
