@@ -21,6 +21,7 @@
            <option  value="ReqStat" >REQUISICIONES</option>
            <option  value="ReqUrg" >REQUISICIONES URGENTES</option>
            <option  value="ItemXReq" >ITEMS POR REQUISICION</option>
+
        <?php } 
            if($this->model->rol_compras=='1' ){
        ?>
@@ -92,6 +93,8 @@
   
 function Filtrar(){
 
+$('#table').html();
+
 
 var limit = $('#limit').val();
 var sort =  $('#sort').val();
@@ -125,6 +128,42 @@ $('#table').html('<P>CARGANDO ...</P>');
 
 }
 
+function FiltrarReq(){
+
+
+$('#table').html();
+
+var limit = $('#limit').val();
+var sort =  $('#sort').val();
+var type =  $('#reportType').val();
+var date1 = $('#date1').val();
+var date2 = $('#date2').val();
+
+
+
+URL = document.getElementById('URL').value;
+
+var datos= "url=bridge_query/get_report/ReqStat/"+sort+"/"+limit+"/"+date1+"/"+date2;
+   
+var link= URL+"index.php";
+
+$('#table').html('<P>CARGANDO ...</P>');
+
+  $.ajax({
+      type: "GET",
+      url: link,
+      data: datos,
+      success: function(res){
+      
+       $('#table').html(res);
+       // alert(res);
+
+        }
+   });
+
+$("#reportType").val("ReqStat").change();
+
+}
 
 </script>
 

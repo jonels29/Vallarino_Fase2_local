@@ -301,103 +301,22 @@ $table = '<script type="text/javascript">
   {
 
    var table = $("#table_job").dataTable({
-   rowReorder: {
-            selector: "td:nth-child(2)"
-        },
+
       paging: false,
-      responsive: true,
+      responsive: false,
       pageLength: 5,
       dom: "Bfrtip",
       bSort: false,
       select: false,
 
-      info: false,
-        buttons: [
-
-          {
-
-          extend: "excelHtml5",
-
-          text: "Exportar",
-
-          title: "Lista",
-
-           
-          exportOptions: {
-
-                columns: ":visible",
-
-                 format: {
-                    header: function ( data ) {
-
-                      var StrPos = data.indexOf("<div");
-
-                        if (StrPos<=0){
-
-                          
-                          var ExpDataHeader = data;
-
-                        }else{
-                       
-                          var ExpDataHeader = data.substr(0, StrPos); 
-
-                        }
-                       
-                      return ExpDataHeader;
-                      }
-                    }
-                 
-                  }
-                
-
-          },
-
-          {
-
-          extend:  "colvis",
-
-          text: "Seleccionar",
-
-          columns: ":gt(0)"           
-
-         },
-
-         {
-
-          extend: "colvisGroup",
-
-          text: "Ninguno",
-
-          show: [0],
-
-          hide: [":gt(0)"]
-
-          },
-
-          {
-
-            extend: "colvisGroup",
-
-            text: "Todo",
-
-            show: ["*"]
-
-          }
-
-          ]
-
-   
 
     });
 
 
 table.yadcf(
 [
-{column_number : 0,
- column_data_type: "html",
- html_data_type: "text" 
-},
-{column_number : 1}
+{column_number : 1},
+{column_number : 2}
 ],
 {cumulative_filtering: true}); 
 
@@ -407,11 +326,11 @@ table.yadcf(
   </script>
 
 
-  <table id="table_job"  class="display nowrap table  table-condensed table-striped table-bordered" cellspacing="0" >
+  <table id="table_job"  class="display  table  table-condensed table-striped table-bordered"  >
 
     <thead>
       <tr>
-        <th width="1%"></th>
+        <th width="2%"></th>
         <th width="3%">Job Id</th>
         <th width="20%">Descripcion</th>
       </tr>

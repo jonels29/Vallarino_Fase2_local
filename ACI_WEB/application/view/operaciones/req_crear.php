@@ -176,9 +176,10 @@ while(i <= cantLineas){
 function checkNOTA(){
 
 
+
 var x=document.getElementById('nota').value;
 
-var patt_slash = new RegExp("/");
+var patt_slash = new RegExp("@");
 var slash = patt_slash.test( x );
 
 if (slash == true){
@@ -205,7 +206,7 @@ if (comilla  == true){
     return false;
   }
 
-
+/*
 var patt_dat = new RegExp("#");
 var dat = patt_dat.test( x );
 
@@ -213,10 +214,10 @@ if (dat == true){
 
   	document.getElementById('nota').value = x.slice(0,-1);
 
-    alert("No se permite carecteres especiales en este campo");
+    alert("No se permite carecteres especiales en este campo");''
     
     return false;
-  }
+  }*/
 
  if (x.length > 1024) 
   {
@@ -263,20 +264,7 @@ if (comilla == true){
     
     return false;
   }
-
-
-/*var patt_dat = new RegExp("#");
-var dat = patt_dat.test( x );
-
-if (dat == true){
-
-  	document.getElementById(DESCID).innerHTML = x.slice(0,-1);
-
-    alert("No se permite carecteres especiales en este campo");
-    
-    return false;
-  }
-*/
+ 
 
   if (x.length > 255) 
   {
@@ -391,7 +379,10 @@ var x=document.getElementById(UNIID).innerHTML;
 <div  class="separador col-lg-12"></div>
   <div   class="col-lg-5">
   <label style="display:inline" > Fecha inicio actividad: </label>
-  <input type='date' style="text-align: center;" class="input-control" name="date_ini" id="date_ini" value="" />
+  <input type='date' style="text-align: center;" class="input-control" name="date_ini" id="date_ini" min='<?php 
+	$datetime = new DateTime('tomorrow');
+	echo $datetime->format('Y-m-d');
+	?>' value="" />
  </div>
 
 </div>
@@ -422,6 +413,7 @@ var x=document.getElementById(UNIID).innerHTML;
 	<input type="CHECKBOX" name="urgent_chk" id="urgent_chk" value="0" />&nbsp<label>Requisicion Urgente</label><br>
 	<input type="CHECKBOX" name="pay_chk" id="pay_chk" value="0" />&nbsp<label>Pago Adelantado</label>
 
+
 	
 </fieldset>
 </div>
@@ -437,13 +429,7 @@ var x=document.getElementById(UNIID).innerHTML;
 <table id="table_req_tb" class="table table-striped table-condensed table-bordered " cellspacing="0">
 	<thead>
 		<tr >
-			<th width="10%" >
-			<!--<select id="check_val" onchange="init(this.value);">
-			<option value="1" >Renglon</option>
-			<option value="2" >Codigo</option> 
-			</select>-->
-                         Renglon
-                        </th>
+			<th width="10%" >Renglon</th>
 			<th width="35%" class="text-center">Descripcion</th>
 			<th width="15%" class="text-center">Cantidad</th>
 			<th width="15%" class="text-center">Unidad</th>
@@ -522,8 +508,41 @@ MSG_ERROR_RELEASE();
 	 CHK_VALIDATION = true;
 	}
 
+   //VALIDAR FECHA DE INICIO
+   DATE = document.getElementById('date_ini').value;
+
+   if (!DATE ){
+
+	  MSG_ERROR('Es obligatorio completar el campo de fecha de inicio',1);
+	 
+	 CHK_VALIDATION = true;
+	}
+
+console.log(DATE);
+console.log(isFutureDate(DATE));
+
+	if (isFutureDate(DATE) == false ) {
+	
+	  MSG_ERROR('La fecha de inicio debe ser en el futuro',1);
+		 
+		 CHK_VALIDATION = true;
+	}
+
+
+
 
 }
+
+function isFutureDate(idate){
+var today = new Date().getTime(),
+    idate = idate.split("-");
+
+
+idate = new Date(idate[0], idate[1] , idate[2]).getTime();
+
+return (today - idate) < 0 ? true : false;
+}
+
 
 function send_req_order(){
 
@@ -547,11 +566,11 @@ if (r == true) {
         spin_show();
 
         var link = URL+"index.php";
-               
+
 
         if (document.getElementById('urgent_chk').checked) {
 
-        	var set_urgent = document.getElementById('urgent_chk').value;
+        	var set_urgent = 0;
 
         }else{
 
@@ -560,11 +579,12 @@ if (r == true) {
 
         if (document.getElementById('pay_chk').checked) {
 
-        	var isPay = document.getElementById('pay_chk').value;
+        	var isPay = 0;
 
         }else{
 
         	var isPay = 1;
+
         }
 
         //REGITRO DE CABECERA
@@ -575,14 +595,15 @@ if (r == true) {
 	        var nota  = document.getElementById('nota').value;
 	        var date_ini = document.getElementById('date_ini').value;
 
-	        	var datos= "url=bridge_query/set_req_header/"+JOBID+"/"+nota+"/"+set_urgent+"/"+date_ini+"/"+isPay; //LINK DEL METODO EN BRIDGE_QUERY
+	        var datos= JOBID+"@"+nota+"@"+set_urgent+"@"+date_ini+"@"+isPay; //LINK DEL METODO EN BRIDGE_QUERY
+ 
 
 
 
-	               return   $.ajax({
+	     return   $.ajax({
 					type: "GET",
 					url: link,
-					data: datos,
+					data: {url: 'bridge_query/set_req_header', Data : datos }, 
 					success: function(res){
 	                                 
 	                                 Req_NO = res;
@@ -610,7 +631,6 @@ if (r == true) {
 					if(res==1){//TERMINA EL LLAMADO AL METODO set_req_items SI ESTE DEVUELV UN '1', indica que ya no hay items en el array que procesar.
 									
 						send_mail(link,Req_NO,set_urgent,isPay);
-				
 					}
 
 				   }
@@ -667,12 +687,12 @@ function FIND_COLUMN_NAME(item){
 return val;
 							
 }
-	
+
 function send_mail(link,Req_NO,flag_urgent,isPay){
 
-       //ENVIO POR MAIL 
+ //ENVIO POR MAIL 
 	var datos= "url=ges_requisiciones/req_mailing/"+Req_NO+"/"+flag_urgent+"/"+isPay; //LINK A LA PAGINA DE MAILING
-    
+
 
 	$.ajax({
 		type: "GET",

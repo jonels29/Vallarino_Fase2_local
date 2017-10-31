@@ -13,13 +13,20 @@ echo "<script> alert('SageConnect no se encuentra activo o no esta debidamente c
 if(isset($_REQUEST['flag']))
 {
 
+	//inicio variables de session
+	$user = $_REQUEST['user'];
+	$pass = md5($_REQUEST['pass']);
+	$this->model->login_in($user,$pass,$temp_url);
 
+}
 
+if(isset($_GET['user']))
+{
 
-//inicio variables de session
-$user = $_REQUEST['user'];
-$pass = md5($_REQUEST['pass']);
-$this->model->login_in($user,$pass,$temp_url);
+	//inicio variables de session
+	$user = $_GET['user'];
+	$pass = md5($_GET['pass']);
+	$this->model->login_in($user,$pass,$temp_url);
 
 }
 

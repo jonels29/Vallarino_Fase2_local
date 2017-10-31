@@ -1,8 +1,8 @@
 <div id="footer" class="footer  col-xs-12">
 
-<div    class="crop col-xs-6">
+<!-- <div    class="crop col-xs-6">
 <?php echo  '    '.$this->model->ConexionSage(); ?>
-</div>
+</div> -->
 
 
 <div style="float: right; text-align:right;" class="crop col-xs-6">

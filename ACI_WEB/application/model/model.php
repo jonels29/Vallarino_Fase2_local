@@ -317,74 +317,70 @@ foreach ($res as $value) {
 }
 
 
-if($email==''){
+    if($email==''){
 
- echo "<script> alert('Usuario o Password no son correctos.');</script>";
- 
+     echo "<script> alert('Usuario o Password no son correctos.');</script>";
+     
 
-}else{
-
-
-$columns= array('last_login' => $timestamp = date('Y-m-d G:i:s'));
-
-$this->update('SAX_USER',$columns,'id='.$id);
-
-session_start();
+    }else{
 
 
-$_SESSION['ID_USER'] = $id;
-$_SESSION['NAME'] = $name;
-$_SESSION['LASTNAME'] = $lastname;
-$_SESSION['EMAIL'] = $email;
-$_SESSION['ROLE'] = $role;
-$_SESSION['PASS'] = $pass;
-$_SESSION['ALMACEN'] = $almacen;
-$_SESSION['ROLE1'] = $rol_compras;
-$_SESSION['ROLE2'] = $rol_campo;
+    $columns= array('last_login' => $timestamp = date('Y-m-d G:i:s'));
 
-/*$print_db_st = '';
+    $this->update('SAX_USER',$columns,'id='.$id);
 
-$check_sage = $this->ConSage(); 
-
-if($check_sage=='0'){
-
- $print_db_st = " alert('SageConnect no se encuentra activo o no esta debidamente conectado al sistema.'); ";
-
-}*/
-
-if($temp_url!=''){
-
-$url = str_replace('@',  '/', $temp_url);
-
-echo '<script> '.$print_db_st.' self.location="'.URL.'index.php?url='.$url.'"; </script>';
+    session_start();
 
 
-}else{
+    $_SESSION['ID_USER'] = $id;
+    $_SESSION['NAME'] = $name;
+    $_SESSION['LASTNAME'] = $lastname;
+    $_SESSION['EMAIL'] = $email;
+    $_SESSION['ROLE'] = $role;
+    $_SESSION['PASS'] = $pass;
+    $_SESSION['ALMACEN'] = $almacen;
+    $_SESSION['ROLE1'] = $rol_compras;
+    $_SESSION['ROLE2'] = $rol_campo;
 
-echo '<script> '.$print_db_st.'  self.location="'.URL.'index.php?url=home/index"; </script>';
-   
-}
+
+        if($temp_url!=''){
+
+        $url = str_replace('@',  '/', $temp_url);
+
+        echo '<script> '.$print_db_st.' self.location="'.URL.'index.php?url='.$url.'"; </script>';
 
 
-} 
+        }else{
+
+        echo '<script> '.$print_db_st.'  self.location="'.URL.'index.php?url=home/index"; </script>';
+           
+        }
+
+
+    } 
 }
 
 
 public function verify_session(){
 
-        session_start();
-
-       // session_destroy();
+session_start();
 
         if(!$_SESSION){
 
-         
-        //echo "<script>alert('Usuario no auntenticado');</script>";/"'.$_GET['url'].'"
+            $temp_url = str_replace('/', '@', $_GET['url']);
 
-        $temp_url = str_replace('/', '@', $_GET['url']);
+            if(isset($_GET['user'])){
+
+                $res = '1';
+                echo '<script> self.location ="index.php?url=login/index/'.$temp_url.'&user='.$_GET['user'].'&pass='.$_GET['pass'].'; </script>';
+
+            }else{
+      
+                $res = '1';
+                echo '<script> self.location ="index.php?url=login/index/'.$temp_url.'"; </script>';
+
+            }
   
-        $res = '1';
-        echo '<script>self.location ="index.php?url=login/index/'.$temp_url.'";</script>';
 
         
         }else{
@@ -394,8 +390,9 @@ public function verify_session(){
         $this->set_login_parameters();
        }
 
-     return $res;
-    }
+return $res;
+}
+
 
 public function set_login_parameters(){
 
@@ -800,17 +797,32 @@ $get_req = $this->Query($sql);
 return $get_req;
 }
 
-public function get_req_to_report_urge($sort,$limit,$clause){
+public function GetQtyReqUrg($sort,$limit,$clause){
 
-$sql='SELECT count(*) as cuenta, job FROM `REQ_HEADER` 
-'.$clause.' group by job order by ID '.$sort.' limit '.$limit.';';
+
+$sql='SELECT count(*) as cuenta, A.job 
+        FROM `REQ_HEADER` as A 
+        '.$clause.' group by A.job order by A.ID '.$sort.' limit '.$limit.';';
 
 $get_req = $this->Query($sql);
-
 
 return $get_req;
 }
 
+
+public function GetQtyReqAll($sort,$limit,$clause){
+
+$sql='SELECT count(*) as cuenta  
+        FROM `REQ_HEADER` as A 
+        '.$clause.'   ;';
+
+$get_req = $this->Query($sql);
+
+$get_req = json_decode($get_req[0]);
+
+
+return $get_req->{'cuenta'};
+}
 
 
 public function get_inv_qty_disp($sort,$limit,$clause){
@@ -858,6 +870,8 @@ return $req_info ;
 ////////////////////////////////////////////////////
 //Orden de compras por id
 public function get_items_by_OC($invoice){
+
+
 
 $query ='SELECT * 
 FROM PurOrdr_Header_Exp
@@ -963,13 +977,35 @@ public function read_db_error(){
 
 }
 
+public function GetLocalTime($dateIn){
 
+$test = $_REQUEST['time'];
+
+$dateOut = $this->convertDateFromTimezone($dateIn,'America/Panama','Y-m-d H:i:s');
+
+if($test == 1){
+
+echo $dateIn.' / '.$dateOut;
+
+}
+
+return $dateOut;
+}
+
+  
+public function convertDateFromTimezone($date,$timezone_to,$format){
+
+$timezone = date_default_timezone_get();
+
+ $date = new DateTime($date,new DateTimeZone($timezone));
+ $date->setTimezone( new DateTimeZone($timezone_to) );
+ return $date->format($format);
+}
+
+  
 public function send_mail($address,$subject,$title,$body){
 
-$res = $this->verify_session();
-
-
-echo $message_to_send ='<html>
+$message_to_send ='<html>
 <head>
 <meta charset="UTF-8">
 <title>'.$title.'</title>
@@ -1030,8 +1066,9 @@ if(!$mail->send()) {
 } else {
 
   ECHO '1';
-
+  return 1;
 }
+
 }
 //CORCHETE DE FIN DE LA CLASE
 }
