@@ -4504,7 +4504,7 @@ $QTY_FALTANTE = $ORDER->{'CANTIDAD'} - $QTY_TOTAL;
 
 echo '</tbody></table>
 <div style="float:right;" class="col-md-2">
-<a href="'.URL.'index.php?url=ges_requisiciones/req_print/'.$ORDER->{'NO_REQ'}.'"  class="btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right btn-single text-left">
+<a href="'.URL.'index.php?url=ges_requisiciones/req_print/'.$ORDER->{'NO_REQ'}.'/'.$ORDER->{'isPay'}.'/'.$ORDER->{'isUrgent'}.'"  class="btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right btn-single text-left">
    <img  class="icon" src="img/Printer.png" />
   <span>Imprimir</span>
 </a>
